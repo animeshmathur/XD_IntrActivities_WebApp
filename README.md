@@ -1,6 +1,6 @@
 # XDIntrActivities
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.2.
+Web application for information on birthdays and work anniversaries of members in XD team.
 
 ## Development server
 
