@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { BirthdaysComponent } from '../birthdays/birthdays.component';
 import { WorkAnniversariesComponent } from '../work-anniversaries/work-anniversaries.component';
+import { MembersListComponent } from '../members-directory/members-list/members-list.component';
 
 const routes: Routes = [
     {
@@ -19,6 +20,10 @@ const routes: Routes = [
     {
         path: 'workAnniversaries',
         component: WorkAnniversariesComponent
+    },
+	{
+        path: 'members',
+        component: MembersListComponent
     },
     {
         path: '',

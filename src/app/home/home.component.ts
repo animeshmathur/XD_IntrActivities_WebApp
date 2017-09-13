@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilitiesService } from '../utilities.service';
-import { MembersService } from '../members.service';
-import { Member } from '../models/member.model';
+import { UtilitiesService } from '../shared/services/utilities.service';
+import { MembersService } from '../shared/services/members.service';
+import { Member } from '../shared/models/member.model';
 
 @Component({
   selector: 'xd-home',

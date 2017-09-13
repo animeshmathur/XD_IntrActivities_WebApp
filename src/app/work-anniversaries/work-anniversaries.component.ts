@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MembersService } from '../members.service';
-import { Member } from '../models/member.model';
+import { MembersService } from '../shared/services/members.service';
+import { Member } from '../shared/models/member.model';
 
 @Component({
   selector: 'xd-work-anniversaries',
@@ -14,7 +14,9 @@ export class WorkAnniversariesComponent implements OnInit {
     constructor(private membersService: MembersService) { }
     
     ngOnInit() {
-        this.members = this.membersService.members;
+        this.membersService.loadMembers().subscribe(() => {
+			this.members = this.membersService.members;
+		});
     }
 
 }

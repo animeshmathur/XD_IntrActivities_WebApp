@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Member } from './models/member.model';
+import { Member } from '../models/member.model';
 import { UtilitiesService } from './utilities.service';
 import { DataService } from './data.service';
 import { Observable } from 'rxjs/Observable';
