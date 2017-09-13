@@ -23,12 +23,14 @@ webpackEmptyAsyncContext.id = "../../../../../src lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__birthdays_birthdays_component__ = __webpack_require__("../../../../../src/app/birthdays/birthdays.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__work_anniversaries_work_anniversaries_component__ = __webpack_require__("../../../../../src/app/work-anniversaries/work-anniversaries.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__members_directory_members_list_members_list_component__ = __webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -46,6 +48,10 @@ var routes = [
     {
         path: 'workAnniversaries',
         component: __WEBPACK_IMPORTED_MODULE_4__work_anniversaries_work_anniversaries_component__["a" /* WorkAnniversariesComponent */]
+    },
+    {
+        path: 'members',
+        component: __WEBPACK_IMPORTED_MODULE_5__members_directory_members_list_members_list_component__["a" /* MembersListComponent */]
     },
     {
         path: '',
@@ -146,22 +152,20 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing_app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__birthday_birthday_module__ = __webpack_require__("../../../../../src/app/birthday/birthday.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__work_anniversary_work_anniversary_module__ = __webpack_require__("../../../../../src/app/work-anniversary/work-anniversary.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__members_service__ = __webpack_require__("../../../../../src/app/members.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__navigation_navigation_component__ = __webpack_require__("../../../../../src/app/navigation/navigation.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__birthdays_birthdays_component__ = __webpack_require__("../../../../../src/app/birthdays/birthdays.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__work_anniversaries_work_anniversaries_component__ = __webpack_require__("../../../../../src/app/work-anniversaries/work-anniversaries.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__birthday_birthday_module__ = __webpack_require__("../../../../../src/app/birthday/birthday.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__work_anniversary_work_anniversary_module__ = __webpack_require__("../../../../../src/app/work-anniversary/work-anniversary.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__members_directory_members_directory_module__ = __webpack_require__("../../../../../src/app/members-directory/members-directory.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__navigation_navigation_component__ = __webpack_require__("../../../../../src/app/navigation/navigation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__birthdays_birthdays_component__ = __webpack_require__("../../../../../src/app/birthdays/birthdays.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__work_anniversaries_work_anniversaries_component__ = __webpack_require__("../../../../../src/app/work-anniversaries/work-anniversaries.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -184,19 +188,21 @@ AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__navigation_navigation_component__["a" /* NavigationComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__home_home_component__["a" /* HomeComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__birthdays_birthdays_component__["a" /* BirthdaysComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__work_anniversaries_work_anniversaries_component__["a" /* WorkAnniversariesComponent */]
+            __WEBPACK_IMPORTED_MODULE_9__navigation_navigation_component__["a" /* NavigationComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__home_home_component__["a" /* HomeComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__birthdays_birthdays_component__["a" /* BirthdaysComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__work_anniversaries_work_anniversaries_component__["a" /* WorkAnniversariesComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_4__app_routing_app_routing_module__["a" /* AppRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_5__birthday_birthday_module__["a" /* BirthdayModule */],
-            __WEBPACK_IMPORTED_MODULE_6__work_anniversary_work_anniversary_module__["a" /* WorkAnniversaryModule */]
+            __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__["a" /* SharedModule */],
+            __WEBPACK_IMPORTED_MODULE_6__birthday_birthday_module__["a" /* BirthdayModule */],
+            __WEBPACK_IMPORTED_MODULE_7__work_anniversary_work_anniversary_module__["a" /* WorkAnniversaryModule */],
+            __WEBPACK_IMPORTED_MODULE_8__members_directory_members_directory_module__["a" /* MembersDirectoryModule */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_7__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_8__utilities_service__["a" /* UtilitiesService */], __WEBPACK_IMPORTED_MODULE_9__members_service__["a" /* MembersService */]],
+        providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -236,7 +242,7 @@ module.exports = "<h1 *ngIf=\"!isFilteredList\">Birthdays <span [hidden]=\"filte
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BirthdayListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -274,7 +280,7 @@ BirthdayListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/birthday/birthday-list/birthday-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/birthday/birthday-list/birthday-list.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
 ], BirthdayListComponent);
 
 var _a;
@@ -330,7 +336,7 @@ BirthdayModule = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterBirthdayByPipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -379,7 +385,7 @@ FilterBirthdayByPipe = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
         name: 'filterBirthdayBy'
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
 ], FilterBirthdayByPipe);
 
 var _a;
@@ -393,7 +399,7 @@ var _a;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SortByDatePipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -462,7 +468,7 @@ SortByDatePipe = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
         name: 'sortByDate'
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
 ], SortByDatePipe);
 
 var _a;
@@ -501,7 +507,7 @@ module.exports = "<xd-birthday-list [members]=\"members\"></xd-birthday-list>\r\
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BirthdaysComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__members_service__ = __webpack_require__("../../../../../src/app/members.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -518,7 +524,10 @@ var BirthdaysComponent = (function () {
         this.membersService = membersService;
     }
     BirthdaysComponent.prototype.ngOnInit = function () {
-        this.members = this.membersService.members;
+        var _this = this;
+        this.membersService.loadMembers().subscribe(function () {
+            _this.members = _this.membersService.members;
+        });
     };
     return BirthdaysComponent;
 }());
@@ -528,7 +537,7 @@ BirthdaysComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/birthdays/birthdays.component.html"),
         styles: [__webpack_require__("../../../../../src/app/birthdays/birthdays.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__members_service__["a" /* MembersService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */]) === "function" && _a || Object])
 ], BirthdaysComponent);
 
 var _a;
@@ -536,7 +545,288 @@ var _a;
 
 /***/ }),
 
-/***/ "../../../../../src/app/data.service.ts":
+/***/ "../../../../../src/app/home/home.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/home.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"membersWithBirthdayToday.length > 0\">\r\n    <h1>Birthdays Today</h1>\r\n    <xd-birthday-list [members]=\"membersWithBirthdayToday\" [isFilteredList]=\"true\"></xd-birthday-list>\r\n</div>\r\n<div *ngIf=\"membersWithWorkAnniversaryToday.length > 0\">\r\n    <h1>Work Anniversaries Today</h1>\r\n    <xd-work-anniversary-list [members]=\"membersWithWorkAnniversaryToday\" [isFilteredList]=\"true\"></xd-work-anniversary-list>\r\n</div>\r\n<div *ngIf=\"membersWithUpcomingBirthday.length > 0\">\r\n    <h1>Upcoming Birthdays</h1>\r\n    <xd-birthday-list [members]=\"membersWithUpcomingBirthday\" [isFilteredList]=\"true\"></xd-birthday-list>\r\n</div>\r\n<div *ngIf=\"membersWithUpcomingWorkAnniversary.length > 0\">\r\n    <h1>Upcoming Work Anniversaries</h1>\r\n    <xd-work-anniversary-list [members]=\"membersWithUpcomingWorkAnniversary\" [isFilteredList]=\"true\"></xd-work-anniversary-list>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/home.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var HomeComponent = (function () {
+    function HomeComponent(utilitiesService, membersService) {
+        this.utilitiesService = utilitiesService;
+        this.membersService = membersService;
+        this.membersWithUpcomingBirthday = [];
+        this.membersWithUpcomingWorkAnniversary = [];
+        this.membersWithBirthdayToday = [];
+        this.membersWithWorkAnniversaryToday = [];
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.membersService.loadMembers().subscribe(function () {
+            _this.members = _this.membersService.members;
+            _this.membersWithUpcomingBirthday = _this.membersService.membersWithUpcomingBirthday;
+            _this.membersWithUpcomingWorkAnniversary = _this.membersService.membersWithUpcomingWorkAnniversary;
+            _this.membersWithBirthdayToday = _this.membersService.membersWithBirthdayToday;
+            _this.membersWithWorkAnniversaryToday = _this.membersService.membersWithWorkAnniversaryToday;
+        });
+    };
+    return HomeComponent;
+}());
+HomeComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'xd-home',
+        template: __webpack_require__("../../../../../src/app/home/home.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/home/home.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__["a" /* MembersService */]) === "function" && _b || Object])
+], HomeComponent);
+
+var _a, _b;
+//# sourceMappingURL=home.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/members-directory-routing.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MembersDirectoryRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var routes = [];
+var MembersDirectoryRoutingModule = (function () {
+    function MembersDirectoryRoutingModule() {
+    }
+    return MembersDirectoryRoutingModule;
+}());
+MembersDirectoryRoutingModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
+    })
+], MembersDirectoryRoutingModule);
+
+//# sourceMappingURL=members-directory-routing.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/members-directory.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MembersDirectoryModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__members_directory_routing_module__ = __webpack_require__("../../../../../src/app/members-directory/members-directory-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__members_list_members_list_component__ = __webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var MembersDirectoryModule = (function () {
+    function MembersDirectoryModule() {
+    }
+    return MembersDirectoryModule;
+}());
+MembersDirectoryModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_2__members_directory_routing_module__["a" /* MembersDirectoryRoutingModule */]
+        ],
+        declarations: [__WEBPACK_IMPORTED_MODULE_3__members_list_members_list_component__["a" /* MembersListComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_3__members_list_members_list_component__["a" /* MembersListComponent */]]
+    })
+], MembersDirectoryModule);
+
+//# sourceMappingURL=members-directory.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/members-list/members-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/members-list/members-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"table-responsive\">\n\t<table class=\"table table-striped\">\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th>Name</th>\n\t\t\t\t<th>ID</th>\n\t\t\t\t<th>Location</th>\n\t\t\t\t<th>Email</th>\n\t\t\t\t<th></th>\n\t\t\t\t<th></th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr *ngFor=\"let member of members\">\n\t\t\t\t<td>{{member.fName}}</td>\n\t\t\t\t<td>{{member.psaId}}</td>\n\t\t\t\t<td>{{member.location}}</td>\n\t\t\t\t<td>{{member.email}}</td>\n\t\t\t\t<td>\n\t\t\t\t\t<button class=\"btn btn-sm btn-outline-primary\"><span class=\"glyphicon glyphicon-edit\"></span> Edit</button>\n\t\t\t\t</td>\n\t\t\t\t<td>\n\t\t\t\t\t<button class=\"btn btn-sm btn-outline-danger\"><span class=\"glyphicon glyphicon-remove\"></span> Remove</button>\n\t\t\t\t</td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table>\n</div>\n<p>\n\t<button class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-plus\"></span> Add Member</button>\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/members-list/members-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MembersListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MembersListComponent = (function () {
+    function MembersListComponent(membersService) {
+        this.membersService = membersService;
+    }
+    MembersListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.membersService.loadMembers().subscribe(function () {
+            _this.members = _this.membersService.members;
+        });
+    };
+    return MembersListComponent;
+}());
+MembersListComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'xd-members-list',
+        template: __webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */]) === "function" && _a || Object])
+], MembersListComponent);
+
+var _a;
+//# sourceMappingURL=members-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/navigation/navigation.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".nav.navbar-nav li a.active{\r\n    background-color: #e7e7e7;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/navigation/navigation.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-toggleable navbar-light bg-faded\">\r\n\t<a class=\"navbar-brand\" routerLink=\"home\">IntrActivities</a>\r\n\t<ul class=\"navbar-nav mr-auto\">\r\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" routerLink=\"home\" routerLinkActive=\"active\">Home</a></li>\r\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" routerLink=\"birthdays\" routerLinkActive=\"active\">Birthdays</a></li>\r\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" routerLink=\"workAnniversaries\" routerLinkActive=\"active\">Work Anniversaries</a></li>\r\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" routerLink=\"members\" routerLinkActive=\"active\">Members Directory</a></li>\r\n\t</ul>\r\n</nav>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/navigation/navigation.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavigationComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NavigationComponent = (function () {
+    function NavigationComponent() {
+    }
+    NavigationComponent.prototype.ngOnInit = function () {
+    };
+    return NavigationComponent;
+}());
+NavigationComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'xd-navigation',
+        template: __webpack_require__("../../../../../src/app/navigation/navigation.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/navigation/navigation.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], NavigationComponent);
+
+//# sourceMappingURL=navigation.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/services/data.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -577,94 +867,14 @@ var _a;
 
 /***/ }),
 
-/***/ "../../../../../src/app/home/home.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/home/home.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div *ngIf=\"membersWithBirthdayToday.length > 0\">\r\n    <h1>Birthdays Today</h1>\r\n    <xd-birthday-list [members]=\"membersWithBirthdayToday\" [isFilteredList]=\"true\"></xd-birthday-list>\r\n</div>\r\n<div *ngIf=\"membersWithWorkAnniversaryToday.length > 0\">\r\n    <h1>Work Anniversaries Today</h1>\r\n    <xd-work-anniversary-list [members]=\"membersWithWorkAnniversaryToday\" [isFilteredList]=\"true\"></xd-work-anniversary-list>\r\n</div>\r\n<div *ngIf=\"membersWithUpcomingBirthday.length > 0\">\r\n    <h1>Upcoming Birthdays</h1>\r\n    <xd-birthday-list [members]=\"membersWithUpcomingBirthday\" [isFilteredList]=\"true\"></xd-birthday-list>\r\n</div>\r\n<div *ngIf=\"membersWithUpcomingWorkAnniversary.length > 0\">\r\n    <h1>Upcoming Work Anniversaries</h1>\r\n    <xd-work-anniversary-list [members]=\"membersWithUpcomingWorkAnniversary\" [isFilteredList]=\"true\"></xd-work-anniversary-list>\r\n</div>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/home/home.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__members_service__ = __webpack_require__("../../../../../src/app/members.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var HomeComponent = (function () {
-    function HomeComponent(utilitiesService, membersService) {
-        this.utilitiesService = utilitiesService;
-        this.membersService = membersService;
-        this.membersWithUpcomingBirthday = [];
-        this.membersWithUpcomingWorkAnniversary = [];
-        this.membersWithBirthdayToday = [];
-        this.membersWithWorkAnniversaryToday = [];
-    }
-    HomeComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.membersService.loadMembers().subscribe(function () {
-            _this.members = _this.membersService.members;
-            _this.membersWithUpcomingBirthday = _this.membersService.membersWithUpcomingBirthday;
-            _this.membersWithUpcomingWorkAnniversary = _this.membersService.membersWithUpcomingWorkAnniversary;
-            _this.membersWithBirthdayToday = _this.membersService.membersWithBirthdayToday;
-            _this.membersWithWorkAnniversaryToday = _this.membersService.membersWithWorkAnniversaryToday;
-        });
-    };
-    return HomeComponent;
-}());
-HomeComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'xd-home',
-        template: __webpack_require__("../../../../../src/app/home/home.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/home/home.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__members_service__["a" /* MembersService */]) === "function" && _b || Object])
-], HomeComponent);
-
-var _a, _b;
-//# sourceMappingURL=home.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/members.service.ts":
+/***/ "../../../../../src/app/shared/services/members.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MembersService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/shared/services/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -725,68 +935,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ "../../../../../src/app/navigation/navigation.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".nav.navbar-nav li a.active{\r\n    background-color: #e7e7e7;\r\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/navigation/navigation.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<nav class=\"navbar navbar-default\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-header\">\r\n            <a class=\"navbar-brand\" routerLink=\"home\">IntrActivities</a>\r\n        </div>\r\n        <ul class=\"nav navbar-nav\">\r\n            <li><a routerLink=\"home\" routerLinkActive=\"active\">Home</a></li>\r\n            <li><a routerLink=\"birthdays\" routerLinkActive=\"active\">Birthdays</a></li>\r\n            <li><a routerLink=\"workAnniversaries\" routerLinkActive=\"active\">Work Anniversaries</a></li>\r\n        </ul>\r\n    </div>\r\n</nav>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/navigation/navigation.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavigationComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var NavigationComponent = (function () {
-    function NavigationComponent() {
-    }
-    NavigationComponent.prototype.ngOnInit = function () {
-    };
-    return NavigationComponent;
-}());
-NavigationComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'xd-navigation',
-        template: __webpack_require__("../../../../../src/app/navigation/navigation.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/navigation/navigation.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], NavigationComponent);
-
-//# sourceMappingURL=navigation.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/utilities.service.ts":
+/***/ "../../../../../src/app/shared/services/utilities.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -885,6 +1034,47 @@ UtilitiesService = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/shared/shared.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SharedModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_service__ = __webpack_require__("../../../../../src/app/shared/services/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var SharedModule = (function () {
+    function SharedModule() {
+    }
+    return SharedModule;
+}());
+SharedModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
+        ],
+        declarations: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__services_utilities_service__["a" /* UtilitiesService */], __WEBPACK_IMPORTED_MODULE_4__services_members_service__["a" /* MembersService */]],
+        exports: []
+    })
+], SharedModule);
+
+//# sourceMappingURL=shared.module.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/work-anniversaries/work-anniversaries.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -916,7 +1106,7 @@ module.exports = "<xd-work-anniversary-list [members]=\"members\"></xd-work-anni
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkAnniversariesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__members_service__ = __webpack_require__("../../../../../src/app/members.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -933,7 +1123,10 @@ var WorkAnniversariesComponent = (function () {
         this.membersService = membersService;
     }
     WorkAnniversariesComponent.prototype.ngOnInit = function () {
-        this.members = this.membersService.members;
+        var _this = this;
+        this.membersService.loadMembers().subscribe(function () {
+            _this.members = _this.membersService.members;
+        });
     };
     return WorkAnniversariesComponent;
 }());
@@ -943,7 +1136,7 @@ WorkAnniversariesComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/work-anniversaries/work-anniversaries.component.html"),
         styles: [__webpack_require__("../../../../../src/app/work-anniversaries/work-anniversaries.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__members_service__["a" /* MembersService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */]) === "function" && _a || Object])
 ], WorkAnniversariesComponent);
 
 var _a;
@@ -957,7 +1150,7 @@ var _a;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterWorkAnniversaryByPipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1006,7 +1199,7 @@ FilterWorkAnniversaryByPipe = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
         name: 'filterWorkAnniversaryBy'
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
 ], FilterWorkAnniversaryByPipe);
 
 var _a;
@@ -1020,7 +1213,7 @@ var _a;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SortByDatePipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1089,7 +1282,7 @@ SortByDatePipe = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
         name: 'sortByDate'
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
 ], SortByDatePipe);
 
 var _a;
@@ -1128,7 +1321,7 @@ module.exports = "<h1 *ngIf=\"!isFilteredList\">Work Anniversaries <span [hidden
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkAnniversaryListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utilities_service__ = __webpack_require__("../../../../../src/app/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1166,7 +1359,7 @@ WorkAnniversaryListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/work-anniversary/work-anniversary-list/work-anniversary-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/work-anniversary/work-anniversary-list/work-anniversary-list.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object])
 ], WorkAnniversaryListComponent);
 
 var _a;

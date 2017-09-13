@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UtilitiesService } from '../utilities.service';
+import { UtilitiesService } from '../shared/services/utilities.service';
 
 @Pipe({
   name: 'filterBirthdayBy'
