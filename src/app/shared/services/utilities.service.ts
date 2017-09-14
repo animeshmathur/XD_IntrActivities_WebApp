@@ -5,7 +5,7 @@ export class UtilitiesService {
 
     constructor() { }
     
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    private months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     
     getMonths(){
         return this.months;
@@ -22,6 +22,11 @@ export class UtilitiesService {
     currentMonth(){
         return new Date().getMonth() + 1;
     }
+
+	lastDateOfCurrentMonth(){
+		var date = new Date();
+		return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+	}
 
     getDuration(member){
         let currentDate = new Date();

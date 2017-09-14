@@ -101,7 +101,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<xd-navigation></xd-navigation>\r\n<div class=\"container\">\r\n    <router-outlet></router-outlet>\r\n</div>"
+module.exports = "<xd-navigation></xd-navigation>\r\n<div class=\"container-fluid\">\r\n    <router-outlet></router-outlet>\r\n</div>"
 
 /***/ }),
 
@@ -717,7 +717,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/members-directory/members-list/members-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"table-responsive\">\n\t<table class=\"table table-striped\">\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th>Name</th>\n\t\t\t\t<th>ID</th>\n\t\t\t\t<th>Location</th>\n\t\t\t\t<th>Email</th>\n\t\t\t\t<th></th>\n\t\t\t\t<th></th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr *ngFor=\"let member of members\">\n\t\t\t\t<td>{{member.fName}}</td>\n\t\t\t\t<td>{{member.psaId}}</td>\n\t\t\t\t<td>{{member.location}}</td>\n\t\t\t\t<td>{{member.email}}</td>\n\t\t\t\t<td>\n\t\t\t\t\t<button class=\"btn btn-sm btn-outline-primary\"><span class=\"glyphicon glyphicon-edit\"></span> Edit</button>\n\t\t\t\t</td>\n\t\t\t\t<td>\n\t\t\t\t\t<button class=\"btn btn-sm btn-outline-danger\"><span class=\"glyphicon glyphicon-remove\"></span> Remove</button>\n\t\t\t\t</td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table>\n</div>\n<p>\n\t<button class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-plus\"></span> Add Member</button>\n</p>\n"
+module.exports = "<div class=\"row\">\r\n\t<div class=\"col-md-8\">\r\n\t\t<h1>Members List</h1>\r\n\t\t<div class=\"table-responsive\">\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t<th>Location</th>\r\n\t\t\t\t\t\t<th>Email</th>\r\n\t\t\t\t\t\t<th></th>\r\n\t\t\t\t\t\t<th></th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr *ngFor=\"let member of members\">\r\n\t\t\t\t\t\t<td>{{member.fName}}</td>\r\n\t\t\t\t\t\t<td>{{member.psaId}}</td>\r\n\t\t\t\t\t\t<td>{{member.location}}</td>\r\n\t\t\t\t\t\t<td>{{member.email}}</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-primary\"><span class=\"glyphicon glyphicon-edit\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-danger\"><span class=\"glyphicon glyphicon-remove\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"col-md-4\">\r\n\t\t<form>\r\n\t\t\t<div class=\"card\">\r\n\t\t\t\t<div class=\"card-header\">\r\n\t\t\t\t\t<div class=\"card-title\">\r\n\t\t\t\t\t\t<h2>New Member</h2>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"card-block\">\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"fName\">First name</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"lName\">Last name</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"psaId\">PSA ID</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"birthdayDay\">Birthday</label>\r\n\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthdayDay\" placeholder=\"Day\" maxlength=\"2\">\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"col-md-5\">\r\n\t\t\t\t\t\t\t\t<select class=\"form-control\" id=\"birthdayMonth\">\r\n\t\t\t\t\t\t\t\t\t<option disabled>Month</option>\r\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\r\n\t\t\t\t\t\t\t\t</select>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"dateOfJoining\">Date of joining</label>\r\n\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningDay\" placeholder=\"Day\" maxlength=\"2\">\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"col-md-5\">\r\n\t\t\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoiningMonth\">\r\n\t\t\t\t\t\t\t\t\t<option disabled>Month</option>\r\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\r\n\t\t\t\t\t\t\t\t</select>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningYear\" placeholder=\"Year\" maxlength=\"4\">\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"location\">Location</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"email\">Email</label>\r\n\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" id=\"email\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"card-footer\">\r\n\t\t\t\t\t<button class=\"btn btn-md btn-primary\">Add</button>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -727,7 +727,8 @@ module.exports = "<div class=\"table-responsive\">\n\t<table class=\"table table
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MembersListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -739,9 +740,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var MembersListComponent = (function () {
-    function MembersListComponent(membersService) {
+    function MembersListComponent(utilitiesService, membersService) {
+        this.utilitiesService = utilitiesService;
         this.membersService = membersService;
+        this.months = [];
+        this.lastDateOfCurrentMonth = 31;
+        this.months = this.utilitiesService.getMonths();
+        this.lastDateOfCurrentMonth = this.utilitiesService.lastDateOfCurrentMonth();
     }
     MembersListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -757,10 +764,10 @@ MembersListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__["a" /* MembersService */]) === "function" && _b || Object])
 ], MembersListComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=members-list.component.js.map
 
 /***/ }),
@@ -966,6 +973,10 @@ var UtilitiesService = (function () {
     };
     UtilitiesService.prototype.currentMonth = function () {
         return new Date().getMonth() + 1;
+    };
+    UtilitiesService.prototype.lastDateOfCurrentMonth = function () {
+        var date = new Date();
+        return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     };
     UtilitiesService.prototype.getDuration = function (member) {
         var currentDate = new Date();
