@@ -2,7 +2,7 @@
 	<div class="col-md-8">
 		<h1>Members List</h1>
 		<div class="table-responsive">
-			<table class="table table-striped">
+			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -14,87 +14,24 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor="let member of members">
-						<td>{{member.fName}}</td>
-						<td>{{member.psaId}}</td>
-						<td>{{member.location}}</td>
-						<td>{{member.email}}</td>
-						<td>
-							<button class="btn btn-sm btn-outline-primary"><span class="glyphicon glyphicon-edit"></span></button>
+					<tr *ngFor="let member of members; let i = index;">
+						<td [hidden]="isEditing[i]">{{member.fName + " " + member.lName}}</td>
+						<td [hidden]="isEditing[i]">{{member.psaId}}</td>
+						<td [hidden]="isEditing[i]">{{member.location}}</td>
+						<td [hidden]="isEditing[i]">{{member.email}}</td>
+						<td [hidden]="isEditing[i]">
+							<button class="btn btn-sm btn-outline-primary" (click)="isEditing[i] = true"><span class="glyphicon glyphicon-edit"></span></button>
 						</td>
-						<td>
+						<td [hidden]="isEditing[i]">
 							<button class="btn btn-sm btn-outline-danger"><span class="glyphicon glyphicon-remove"></span></button>
 						</td>
+						<td *ngIf="isEditing[i]" colspan="6" xd-edit-member-form [member]="member" (closeEdit)="closeEditing(i);" (updateMember)="updateMemberData(i, $event);"></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
 	<div class="col-md-4">
-		<form>
-			<div class="card">
-				<div class="card-header">
-					<div class="card-title">
-						<h2>New Member</h2>
-					</div>
-				</div>
-				<div class="card-block">
-					<div class="form-group">
-						<label class="form-control-label" for="fName">First name</label>
-						<input type="text" class="form-control" id="fName">
-					</div>
-					<div class="form-group">
-						<label class="form-control-label" for="lName">Last name</label>
-						<input type="text" class="form-control" id="lName">
-					</div>
-					<div class="form-group">
-						<label class="form-control-label" for="psaId">PSA ID</label>
-						<input type="text" class="form-control" id="psaId">
-					</div>
-					<div class="form-group">
-						<label class="form-control-label" for="birthdayDay">Birthday</label>
-						<div class="row">
-							<div class="col-md-3">
-								<input type="text" class="form-control" id="birthdayDay" placeholder="Day" maxlength="2">
-							</div>
-							<div class="col-md-5">
-								<select class="form-control" id="birthdayMonth">
-									<option disabled>Month</option>
-									<option *ngFor="let month of months; let i = index;" [value]="i + 1">{{month}}</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="form-control-label" for="dateOfJoining">Date of joining</label>
-						<div class="row">
-							<div class="col-md-3">
-								<input type="text" class="form-control" id="dateOfJoiningDay" placeholder="Day" maxlength="2">
-							</div>
-							<div class="col-md-5">
-								<select class="form-control" id="dateOfJoiningMonth">
-									<option disabled>Month</option>
-									<option *ngFor="let month of months; let i = index;" [value]="i + 1">{{month}}</option>
-								</select>
-							</div>
-							<div class="col-md-4">
-								<input type="text" class="form-control" id="dateOfJoiningYear" placeholder="Year" maxlength="4">
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="form-control-label" for="location">Location</label>
-						<input type="text" class="form-control" id="location">
-					</div>
-					<div class="form-group">
-						<label class="form-control-label" for="email">Email</label>
-						<input type="email" class="form-control" id="email">
-					</div>
-				</div>
-				<div class="card-footer">
-					<button class="btn btn-md btn-primary">Add</button>
-				</div>
-			</div>
-		</form>
+		<xd-add-member-form></xd-add-member-form>
 	</div>
 </div>
