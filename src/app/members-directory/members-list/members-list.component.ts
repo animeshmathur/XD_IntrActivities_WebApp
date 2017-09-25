@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilitiesService } from '../../shared/services/utilities.service';
 import { MembersService } from '../../shared/services/members.service';
 import { Member } from '../../shared/models/member.model';
 
@@ -10,8 +11,13 @@ import { Member } from '../../shared/models/member.model';
 export class MembersListComponent implements OnInit {
 
   	members : Member[];
+	months = [];
+	lastDateOfCurrentMonth: number = 31;
     
-    constructor(private membersService: MembersService) { }
+    constructor(private utilitiesService: UtilitiesService, private membersService: MembersService) {
+		this.months = this.utilitiesService.getMonths();
+		this.lastDateOfCurrentMonth = this.utilitiesService.lastDateOfCurrentMonth();
+	}
     
     ngOnInit() {
         this.membersService.loadMembers().subscribe(() => {
