@@ -319,7 +319,7 @@ var BirthdayModule = (function () {
 BirthdayModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_3__birthday_list_birthday_list_component__["a" /* BirthdayListComponent */], __WEBPACK_IMPORTED_MODULE_4__filter_birthday_by_pipe__["a" /* FilterBirthdayByPipe */], __WEBPACK_IMPORTED_MODULE_5__pipes_sort_by_date_pipe__["a" /* SortByDatePipe */]],
         exports: [__WEBPACK_IMPORTED_MODULE_3__birthday_list_birthday_list_component__["a" /* BirthdayListComponent */]]
@@ -625,6 +625,237 @@ var _a, _b;
 
 /***/ }),
 
+/***/ "../../../../../src/app/members-directory/add-member-form/add-member-form.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/add-member-form/add-member-form.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<form [formGroup]=\"addMemberForm\" (ngSubmit)=\"addMember();\" novalidate>\n\t<div class=\"card\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"card-title\">\n\t\t\t\t<h2>New Member</h2>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-block\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"fName\">First name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName\" [formControl]=\"fName\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"lName\">Last name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName\" [formControl]=\"lName\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"psaId\">PSA ID</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId\" [formControl]=\"psaId\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"location\">Location</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location\" [formControl]=\"location\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"form-group\" formGroupName=\"birthday\">\n\t\t\t\t<label class=\"form-control-label\" for=\"birthdayDay\">Birthday</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthdayDay\" placeholder=\"Day\" maxlength=\"2\" [formControl]=\"birthday.day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t\t<select class=\"form-control\" id=\"month\" [formControl]=\"birthday.month\">\n\t\t\t\t\t\t\t<option selected disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"dateOfJoining\">\n\t\t\t\t<label class=\"form-control-label\" for=\"dateOfJoining\">Date of joining</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningDay\" placeholder=\"Day\" maxlength=\"2\" [formControl]=\"dateOfJoining.day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoiningMonth\" [formControl]=\"dateOfJoining.month\">\n\t\t\t\t\t\t\t<option selected disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningYear\" placeholder=\"Year\" maxlength=\"4\" [formControl]=\"dateOfJoining.year\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label class=\"form-control-label\" for=\"email\">Email</label>\n\t\t\t\t<input type=\"email\" class=\"form-control\" id=\"email\" [formControl]=\"email\">\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-footer\">\n\t\t\t<button class=\"btn btn-md btn-primary\">Add</button>\n\t\t</div>\n\t</div>\n</form>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/add-member-form/add-member-form.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddMemberFormComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AddMemberFormComponent = (function () {
+    function AddMemberFormComponent(utilitiesService, builder) {
+        this.utilitiesService = utilitiesService;
+        this.builder = builder;
+        this.months = [];
+        this.fName = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('');
+        this.lName = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('');
+        this.psaId = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('');
+        this.location = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('');
+        this.birthday = {
+            day: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */](''),
+            month: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('')
+        };
+        this.email = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('');
+        this.dateOfJoining = {
+            day: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */](''),
+            month: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */](''),
+            year: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('')
+        };
+        this.addMemberForm = this.builder.group({
+            fName: this.fName,
+            lName: this.lName,
+            psaId: this.psaId,
+            location: this.location,
+            birthday: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormGroup */]({
+                day: this.birthday.day,
+                month: this.birthday.month
+            }),
+            dateOfJoining: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormGroup */]({
+                day: this.dateOfJoining.day,
+                month: this.dateOfJoining.month,
+                year: this.dateOfJoining.year
+            }),
+            email: this.email
+        });
+        this.months = this.utilitiesService.getMonths();
+    }
+    AddMemberFormComponent.prototype.ngOnInit = function () {
+    };
+    AddMemberFormComponent.prototype.addMember = function () {
+        console.log(this.addMemberForm.value);
+    };
+    return AddMemberFormComponent;
+}());
+AddMemberFormComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'xd-add-member-form',
+        template: __webpack_require__("../../../../../src/app/members-directory/add-member-form/add-member-form.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/members-directory/add-member-form/add-member-form.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _b || Object])
+], AddMemberFormComponent);
+
+var _a, _b;
+//# sourceMappingURL=add-member-form.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<form [formGroup]=\"editMemberForm\" (ngSubmit)=\"updateMemberDetail();\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"fName-{{index}}\">First Name</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName-{{index}}\" [formControl]=\"fName\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"lName-{{index}}\">Last Name</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName-{{index}}\" [formControl]=\"lName\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"psaId-{{index}}\">PSA ID</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId-{{index}}\" [formControl]=\"psaId\">\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"location-{{index}}\">Location</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location-{{index}}\" [formControl]=\"location\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"birthday\">\n\t\t\t\t<label for=\"birthday-day-{{index}}\">Birthday</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthday-day-{{index}}\" [formControl]=\"birthday.day\" placeholder=\"Day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n<!--\t\t\t\t\t<label for=\"birthday-month-{{index}}\">Month</label>-->\n\t\t\t\t\t\t<select class=\"form-control\" id=\"birthday-month-{{index}}\" [formControl]=\"birthday.month\">\n\t\t\t\t\t\t\t<option disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"dateOfJoining\">\n\t\t\t\t<label for=\"dateOfJoining-day-{{index}}\">Date of Joining</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-day-{{index}}\" [formControl]=\"dateOfJoining.day\" placeholder=\"Day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n<!--\t\t\t\t\t<label for=\"birthday-month-{{index}}\">Month</label>-->\n\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoining-month-{{index}}\" [formControl]=\"dateOfJoining.month\">\n\t\t\t\t\t\t\t<option disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-year-{{index}}\" [formControl]=\"dateOfJoining.year\" placeholder=\"Year\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button class=\"btn btn-primary\" type=\"submit\">Update</button>\n\t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"closeEditing();\">Cancel</button>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</form>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditMemberFormComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditMemberFormComponent = (function () {
+    function EditMemberFormComponent(utilitiesService, builder) {
+        this.utilitiesService = utilitiesService;
+        this.builder = builder;
+        this.closeEdit = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.updateMember = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.months = [];
+        this.fName = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]("");
+        this.lName = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]("");
+        this.psaId = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('');
+        this.location = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('');
+        this.birthday = {
+            day: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](''),
+            month: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('')
+        };
+        this.email = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('');
+        this.dateOfJoining = {
+            day: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](''),
+            month: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](''),
+            year: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('')
+        };
+        this.editMemberForm = this.builder.group({
+            fName: this.fName,
+            lName: this.lName,
+            psaId: this.psaId,
+            location: this.location,
+            birthday: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormGroup */]({
+                day: this.birthday.day,
+                month: this.birthday.month
+            }),
+            dateOfJoining: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormGroup */]({
+                day: this.dateOfJoining.day,
+                month: this.dateOfJoining.month,
+                year: this.dateOfJoining.year
+            }),
+            email: this.email
+        });
+        this.months = this.utilitiesService.getMonths();
+    }
+    EditMemberFormComponent.prototype.ngOnInit = function () {
+        this.editMemberForm.patchValue(this.member);
+    };
+    EditMemberFormComponent.prototype.closeEditing = function () {
+        this.closeEdit.emit();
+    };
+    EditMemberFormComponent.prototype.updateMemberDetail = function () {
+        console.log(this.editMemberForm.value);
+        this.member = this.editMemberForm.value;
+        this.updateMember.emit(this.member);
+        this.closeEditing();
+    };
+    return EditMemberFormComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])("member"),
+    __metadata("design:type", Object)
+], EditMemberFormComponent.prototype, "member", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Number)
+], EditMemberFormComponent.prototype, "index", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]) === "function" && _a || Object)
+], EditMemberFormComponent.prototype, "closeEdit", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]) === "function" && _b || Object)
+], EditMemberFormComponent.prototype, "updateMember", void 0);
+EditMemberFormComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: '[xd-edit-member-form]',
+        template: __webpack_require__("../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object])
+], EditMemberFormComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=edit-member-form.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/members-directory/members-directory-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -664,14 +895,20 @@ MembersDirectoryRoutingModule = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MembersDirectoryModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__members_directory_routing_module__ = __webpack_require__("../../../../../src/app/members-directory/members-directory-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__members_list_members_list_component__ = __webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__members_directory_routing_module__ = __webpack_require__("../../../../../src/app/members-directory/members-directory-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__members_list_members_list_component__ = __webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__add_member_form_add_member_form_component__ = __webpack_require__("../../../../../src/app/members-directory/add-member-form/add-member-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__edit_member_form_edit_member_form_component__ = __webpack_require__("../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -685,10 +922,11 @@ MembersDirectoryModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__members_directory_routing_module__["a" /* MembersDirectoryRoutingModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__members_directory_routing_module__["a" /* MembersDirectoryRoutingModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3__members_list_members_list_component__["a" /* MembersListComponent */]],
-        exports: [__WEBPACK_IMPORTED_MODULE_3__members_list_members_list_component__["a" /* MembersListComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_4__members_list_members_list_component__["a" /* MembersListComponent */], __WEBPACK_IMPORTED_MODULE_5__add_member_form_add_member_form_component__["a" /* AddMemberFormComponent */], __WEBPACK_IMPORTED_MODULE_6__edit_member_form_edit_member_form_component__["a" /* EditMemberFormComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_4__members_list_members_list_component__["a" /* MembersListComponent */]]
     })
 ], MembersDirectoryModule);
 
@@ -717,7 +955,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/members-directory/members-list/members-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n\t<div class=\"col-md-8\">\r\n\t\t<h1>Members List</h1>\r\n\t\t<div class=\"table-responsive\">\r\n\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t<th>Location</th>\r\n\t\t\t\t\t\t<th>Email</th>\r\n\t\t\t\t\t\t<th></th>\r\n\t\t\t\t\t\t<th></th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr *ngFor=\"let member of members\">\r\n\t\t\t\t\t\t<td>{{member.fName}}</td>\r\n\t\t\t\t\t\t<td>{{member.psaId}}</td>\r\n\t\t\t\t\t\t<td>{{member.location}}</td>\r\n\t\t\t\t\t\t<td>{{member.email}}</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-primary\"><span class=\"glyphicon glyphicon-edit\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-danger\"><span class=\"glyphicon glyphicon-remove\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"col-md-4\">\r\n\t\t<form>\r\n\t\t\t<div class=\"card\">\r\n\t\t\t\t<div class=\"card-header\">\r\n\t\t\t\t\t<div class=\"card-title\">\r\n\t\t\t\t\t\t<h2>New Member</h2>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"card-block\">\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"fName\">First name</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"lName\">Last name</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"psaId\">PSA ID</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"birthdayDay\">Birthday</label>\r\n\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthdayDay\" placeholder=\"Day\" maxlength=\"2\">\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"col-md-5\">\r\n\t\t\t\t\t\t\t\t<select class=\"form-control\" id=\"birthdayMonth\">\r\n\t\t\t\t\t\t\t\t\t<option disabled>Month</option>\r\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\r\n\t\t\t\t\t\t\t\t</select>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"dateOfJoining\">Date of joining</label>\r\n\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningDay\" placeholder=\"Day\" maxlength=\"2\">\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"col-md-5\">\r\n\t\t\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoiningMonth\">\r\n\t\t\t\t\t\t\t\t\t<option disabled>Month</option>\r\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\r\n\t\t\t\t\t\t\t\t</select>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningYear\" placeholder=\"Year\" maxlength=\"4\">\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"location\">Location</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"email\">Email</label>\r\n\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" id=\"email\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"card-footer\">\r\n\t\t\t\t\t<button class=\"btn btn-md btn-primary\">Add</button>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n\t<div class=\"col-md-8\">\r\n\t\t<h1>Members List</h1>\r\n\t\t<div class=\"table-responsive\">\r\n\t\t\t<table class=\"table table-bordered\">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t<th>Location</th>\r\n\t\t\t\t\t\t<th>Email</th>\r\n\t\t\t\t\t\t<th></th>\r\n\t\t\t\t\t\t<th></th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr *ngFor=\"let member of members; let i = index;\">\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.fName + \" \" + member.lName}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.psaId}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.location}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.email}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-primary\" (click)=\"isEditing[i] = true\"><span class=\"glyphicon glyphicon-edit\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-danger\"><span class=\"glyphicon glyphicon-remove\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td *ngIf=\"isEditing[i]\" colspan=\"6\" xd-edit-member-form [member]=\"member\" (closeEdit)=\"closeEditing(i);\" (updateMember)=\"updateMemberData(i, $event);\"></td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"col-md-4\">\r\n\t\t<xd-add-member-form></xd-add-member-form>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -727,8 +965,7 @@ module.exports = "<div class=\"row\">\r\n\t<div class=\"col-md-8\">\r\n\t\t<h1>M
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MembersListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -740,21 +977,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var MembersListComponent = (function () {
-    function MembersListComponent(utilitiesService, membersService) {
-        this.utilitiesService = utilitiesService;
+    function MembersListComponent(membersService) {
         this.membersService = membersService;
-        this.months = [];
-        this.lastDateOfCurrentMonth = 31;
-        this.months = this.utilitiesService.getMonths();
-        this.lastDateOfCurrentMonth = this.utilitiesService.lastDateOfCurrentMonth();
+        this.isEditing = [];
     }
     MembersListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.membersService.loadMembers().subscribe(function () {
             _this.members = _this.membersService.members;
+            _this.members.forEach(function () { return _this.isEditing.push(false); });
         });
+    };
+    MembersListComponent.prototype.closeEditing = function (i) {
+        this.isEditing[i] = false;
+    };
+    MembersListComponent.prototype.updateMemberData = function (index, newMemberData) {
+        this.members[index] = newMemberData;
     };
     return MembersListComponent;
 }());
@@ -764,10 +1003,10 @@ MembersListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/members-directory/members-list/members-list.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_members_service__["a" /* MembersService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_members_service__["a" /* MembersService */]) === "function" && _a || Object])
 ], MembersListComponent);
 
-var _a, _b;
+var _a;
 //# sourceMappingURL=members-list.component.js.map
 
 /***/ }),
@@ -1409,7 +1648,7 @@ var WorkAnniversaryModule = (function () {
 WorkAnniversaryModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_3__work_anniversary_list_work_anniversary_list_component__["a" /* WorkAnniversaryListComponent */], __WEBPACK_IMPORTED_MODULE_4__filter_work_anniversary_by_pipe__["a" /* FilterWorkAnniversaryByPipe */], __WEBPACK_IMPORTED_MODULE_5__pipes_sort_by_date_pipe__["a" /* SortByDatePipe */]],
         exports: [__WEBPACK_IMPORTED_MODULE_3__work_anniversary_list_work_anniversary_list_component__["a" /* WorkAnniversaryListComponent */]]
