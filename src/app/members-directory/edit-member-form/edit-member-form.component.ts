@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UtilitiesService } from '../../shared/services/utilities.service';
 import { Member } from '../../shared/models/member.model'; 
+import { MembersService } from '../../shared/services/members.service';
 
 @Component({
   selector: '[xd-edit-member-form]',

@@ -6,6 +6,16 @@
 			</div>
 		</div>
 		<div class="card-block">
+			<div class="alert alert-danger" role="alert" [hidden]="fName.valid || fName.untouched">First name is required.</div>
+			<div class="alert alert-danger" role="alert" [hidden]="psaId.valid || psaId.untouched">PSA ID name is required.</div>
+			<div class="alert alert-danger" role="alert" [hidden]="location.valid || location.untouched">Location name is required.</div>
+			<div class="alert alert-danger" role="alert" [hidden]="birthday.day.valid || birthday.day.untouched">Birthday's day is required.</div>
+			<div class="alert alert-danger" role="alert" [hidden]="birthday.month.valid || birthday.month.untouched">Birthday's month is required.</div>
+			<div class="alert alert-danger" role="alert" [hidden]="dateOfJoining.day.valid || dateOfJoining.day.untouched">Date of Joining's day is required.</div>
+			<div class="alert alert-danger" role="alert" [hidden]="dateOfJoining.month.valid || dateOfJoining.month.untouched">Date of Joining's month is required.</div>
+			<div class="alert alert-danger" role="alert" [hidden]="dateOfJoining.year.valid || dateOfJoining.year.untouched">Date of Joining's year is required.</div>
+			<div class="alert alert-danger" role="alert" [hidden]="email.valid || email.untouched">Email is required.</div>
+			
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
@@ -72,7 +82,7 @@
 			</div>
 		</div>
 		<div class="card-footer">
-			<button class="btn btn-md btn-primary">Add</button>
+			<button class="btn btn-md btn-primary" [disabled]="!addMemberForm.valid">Add</button>
 		</div>
 	</div>
 </form>
