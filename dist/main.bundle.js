@@ -723,9 +723,15 @@ var AddMemberFormComponent = (function () {
             if (data.status == "success") {
                 _this.addMemberForm.reset();
             }
-            _this.addMemberFeedback.emit(data.message);
+            _this.addMemberFeedback.emit({
+                status: data.status,
+                message: data.message
+            });
         }, function (err) {
-            _this.addMemberFeedback.emit(err);
+            _this.addMemberFeedback.emit({
+                status: "failed",
+                message: err
+            });
         });
     };
     return AddMemberFormComponent;
@@ -978,7 +984,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/members-directory/members-list/members-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"alert alert-info\" [hidden]=\"!hasFeedback\">\r\n\t{{feedbackMessage}}\r\n</div>\r\n<div class=\"row\">\r\n\t<div class=\"col-md-8\">\r\n\t\t<h1>Members List</h1>\r\n\t\t<div class=\"table-responsive\">\r\n\t\t\t<table class=\"table table-bordered\">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t<th>PSA ID</th>\r\n\t\t\t\t\t\t<th>Location</th>\r\n\t\t\t\t\t\t<th>Email</th>\r\n\t\t\t\t\t\t<th colspan=\"2\">Actions</th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr *ngFor=\"let member of members; let i = index;\">\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.fName + \" \" + member.lName}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.psaId}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.location}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.email}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-primary\" (click)=\"isEditing[i] = true\"><span class=\"glyphicon glyphicon-edit\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-danger\" (click)=\"deleteMember(member);\"><span class=\"glyphicon glyphicon-remove\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td *ngIf=\"isEditing[i]\" colspan=\"6\" xd-edit-member-form [member]=\"member\" (closeEdit)=\"closeEditing(i);\" (updateMember)=\"updateMemberData(i, $event);\"></td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"col-md-4\">\r\n\t\t<xd-add-member-form (addMemberFeedback)=\"setFeedback($event);\"></xd-add-member-form>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"alert\" [ngClass]=\"{'alert-info': feedback.status == 'success', 'alert-danger': feedback.status == 'failed'}\" [hidden]=\"!hasFeedback\">\r\n\t{{feedback.message}}\r\n</div>\r\n<div class=\"row\">\r\n\t<div class=\"col-md-8\">\r\n\t\t<h1>Members List</h1>\r\n\t\t<div class=\"table-responsive\">\r\n\t\t\t<table class=\"table table-bordered\">\r\n\t\t\t\t<thead>\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<th>Name</th>\r\n\t\t\t\t\t\t<th>PSA ID</th>\r\n\t\t\t\t\t\t<th>Location</th>\r\n\t\t\t\t\t\t<th>Email</th>\r\n\t\t\t\t\t\t<th colspan=\"2\">Actions</th>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</thead>\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr *ngFor=\"let member of members; let i = index;\">\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.fName + \" \" + member.lName}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.psaId}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.location}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">{{member.email}}</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-primary\" (click)=\"isEditing[i] = true\"><span class=\"glyphicon glyphicon-edit\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td [hidden]=\"isEditing[i]\">\r\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-outline-danger\" (click)=\"deleteMember(member);\"><span class=\"glyphicon glyphicon-remove\"></span></button>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td *ngIf=\"isEditing[i]\" colspan=\"6\" xd-edit-member-form [member]=\"member\" (closeEdit)=\"closeEditing(i);\" (updateMember)=\"updateMemberData(i, $event);\"></td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"col-md-4\">\r\n\t\t<xd-add-member-form (addMemberFeedback)=\"serveFeedback($event);\"></xd-add-member-form>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -1005,8 +1011,15 @@ var MembersListComponent = (function () {
         this.membersService = membersService;
         this.isEditing = [];
         this.hasFeedback = false;
+        this.feedback = {
+            status: "",
+            message: ""
+        };
     }
     MembersListComponent.prototype.ngOnInit = function () {
+        this.getMembers();
+    };
+    MembersListComponent.prototype.getMembers = function () {
         var _this = this;
         this.membersService.loadMembers().subscribe(function () {
             _this.members = _this.membersService.members;
@@ -1022,14 +1035,18 @@ var MembersListComponent = (function () {
     MembersListComponent.prototype.deleteMember = function (member) {
         var _this = this;
         this.membersService.deleteMember(member).subscribe(function (data) {
-            _this.setFeedback(data);
+            _this.serveFeedback(data);
         }, function (err) {
-            _this.setFeedback(err);
+            _this.serveFeedback(err);
         });
     };
-    MembersListComponent.prototype.setFeedback = function (msg) {
+    MembersListComponent.prototype.serveFeedback = function (feedback) {
+        if (feedback.status == "success") {
+            this.getMembers();
+        }
         this.hasFeedback = true;
-        this.feedbackMessage = msg;
+        this.feedback.status = feedback.status;
+        this.feedback.message = feedback.message;
     };
     return MembersListComponent;
 }());

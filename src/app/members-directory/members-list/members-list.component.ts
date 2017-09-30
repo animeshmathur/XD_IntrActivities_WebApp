@@ -12,18 +12,25 @@ export class MembersListComponent implements OnInit {
   	members : Member[];
 	isEditing = [];
 	hasFeedback: boolean = false;
-	feedbackMessage: string;
+	feedback = {
+		status: "",
+		message: ""
+	}
     
     constructor(private membersService: MembersService) {
 		
 	}
     
     ngOnInit() {
-        this.membersService.loadMembers().subscribe(() => {
+        this.getMembers();
+    }
+	
+	getMembers(){
+		this.membersService.loadMembers().subscribe(() => {
 			this.members = this.membersService.members;
 			this.members.forEach(() => this.isEditing.push(false));
 		});
-    }
+	}
 	
 	closeEditing(i: number){
 		this.isEditing[i] = false;
@@ -36,17 +43,21 @@ export class MembersListComponent implements OnInit {
 	deleteMember(member: Member){
 		this.membersService.deleteMember(member).subscribe(
 			(data) => {
-				this.setFeedback(data);
+				this.serveFeedback(data);
 			},
 			(err) => {
-				this.setFeedback(err);
+				this.serveFeedback(err);
 			}
 		);
 	}
 	
 	
-	setFeedback(msg: string){
+	serveFeedback(feedback){
+		if(feedback.status == "success"){
+			this.getMembers();
+		}
 		this.hasFeedback = true;
-		this.feedbackMessage = msg;
+		this.feedback.status = feedback.status;
+		this.feedback.message = feedback.message;
 	}
 }
