@@ -646,7 +646,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/members-directory/add-member-form/add-member-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"addMemberForm\" (ngSubmit)=\"addMember();\" novalidate>\n\t<div class=\"card\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"card-title\">\n\t\t\t\t<h2>New Member</h2>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-block\">\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"fName.valid || fName.untouched\">First name is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"psaId.valid || psaId.untouched\">PSA ID name is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"location.valid || location.untouched\">Location name is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"birthday.day.valid || birthday.day.untouched\">Birthday's day is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"birthday.month.valid || birthday.month.untouched\">Birthday's month is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"dateOfJoining.day.valid || dateOfJoining.day.untouched\">Date of Joining's day is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"dateOfJoining.month.valid || dateOfJoining.month.untouched\">Date of Joining's month is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"dateOfJoining.year.valid || dateOfJoining.year.untouched\">Date of Joining's year is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"email.valid || email.untouched\">Email is required.</div>\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"fName\">First name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName\" [formControl]=\"fName\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"lName\">Last name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName\" [formControl]=\"lName\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"psaId\">PSA ID</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId\" [formControl]=\"psaId\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"location\">Location</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location\" [formControl]=\"location\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"form-group\" formGroupName=\"birthday\">\n\t\t\t\t<label class=\"form-control-label\" for=\"birthdayDay\">Birthday</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthdayDay\" placeholder=\"Day\" maxlength=\"2\" [formControl]=\"birthday.day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t\t<select class=\"form-control\" id=\"month\" [formControl]=\"birthday.month\">\n\t\t\t\t\t\t\t<option selected disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"dateOfJoining\">\n\t\t\t\t<label class=\"form-control-label\" for=\"dateOfJoining\">Date of joining</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningDay\" placeholder=\"Day\" maxlength=\"2\" [formControl]=\"dateOfJoining.day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoiningMonth\" [formControl]=\"dateOfJoining.month\">\n\t\t\t\t\t\t\t<option selected disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningYear\" placeholder=\"Year\" maxlength=\"4\" [formControl]=\"dateOfJoining.year\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label class=\"form-control-label\" for=\"email\">Email</label>\n\t\t\t\t<input type=\"email\" class=\"form-control\" id=\"email\" [formControl]=\"email\">\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-footer\">\n\t\t\t<button class=\"btn btn-md btn-primary\" [disabled]=\"!addMemberForm.valid\">Add</button>\n\t\t</div>\n\t</div>\n</form>"
+module.exports = "<form [formGroup]=\"addMemberForm\" (ngSubmit)=\"addMember();\" novalidate>\n\t<div class=\"card\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"card-title\">\n\t\t\t\t<h2>New Member</h2>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-block\">\n\t\t\t<p class=\"text-right\"><span class=\"text-danger\">* </span>Required fields</p>\n<!--\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"fName.valid || fName.untouched\">First name is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"psaId.valid || psaId.untouched\">PSA ID name is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"location.valid || location.untouched\">Location name is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"birthday.day.valid || birthday.day.untouched\">Birthday's day is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"birthday.month.valid || birthday.month.untouched\">Birthday's month is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"dateOfJoining.day.valid || dateOfJoining.day.untouched\">Date of Joining's day is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"dateOfJoining.month.valid || dateOfJoining.month.untouched\">Date of Joining's month is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"dateOfJoining.year.valid || dateOfJoining.year.untouched\">Date of Joining's year is required.</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"email.valid || email.untouched\">Email is required.</div>\n\t\t\t\n-->\n\t\t\t\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"(!birthday.day.hasError('isNotCalendarDay') && birthday.day.dirty) || birthday.day.untouched\">\n\t\t\t\tBirthday's day is invalid.\n\t\t\t</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"(!birthday.month.hasError('isNotCalendarMonth') && birthday.month.dirty) || birthday.month.untouched\">\n\t\t\t\tBirthday's month is invalid.\n\t\t\t</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"(!dateOfJoining.day.hasError('isNotCalendarDay') && dateOfJoining.day.dirty) || dateOfJoining.day.untouched\">\n\t\t\t\tDate of Joining's day is invalid.\n\t\t\t</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"(!dateOfJoining.month.hasError('isNotCalendarMonth') && dateOfJoining.month.dirty) || dateOfJoining.month.untouched\">\n\t\t\t\tDate of Joining's month is invalid.\n\t\t\t</div>\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"(!dateOfJoining.year.hasError('isNotCalendarYear') && dateOfJoining.year.dirty) || dateOfJoining.year.untouched\">\n\t\t\t\tDate of Joining's year is invalid.\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label required\" for=\"fName\">First name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName\" [formControl]=\"fName\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label\" for=\"lName\">Last name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName\" [formControl]=\"lName\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label required\" for=\"psaId\">PSA ID</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId\" [formControl]=\"psaId\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-control-label required\" for=\"location\">Location</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location\" [formControl]=\"location\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"form-group\" formGroupName=\"birthday\">\n\t\t\t\t<label class=\"form-control-label required\" for=\"birthdayDay\">Birthday</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthdayDay\" placeholder=\"Day\" maxlength=\"2\" [formControl]=\"birthday.day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t\t<select class=\"form-control\" id=\"month\" [formControl]=\"birthday.month\">\n\t\t\t\t\t\t\t<option selected disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"dateOfJoining\">\n\t\t\t\t<label class=\"form-control-label required\" for=\"dateOfJoining\">Date of joining</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningDay\" placeholder=\"Day\" maxlength=\"2\" [formControl]=\"dateOfJoining.day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoiningMonth\" [formControl]=\"dateOfJoining.month\">\n\t\t\t\t\t\t\t<option selected disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoiningYear\" placeholder=\"Year\" maxlength=\"4\" [formControl]=\"dateOfJoining.year\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label class=\"form-control-label required\" for=\"email\">Email</label>\n\t\t\t\t<input type=\"email\" class=\"form-control\" id=\"email\" [formControl]=\"email\">\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"card-footer\">\n\t\t\t<button class=\"btn btn-md btn-primary\" [disabled]=\"!addMemberForm.valid\">Add</button>\n\t\t</div>\n\t</div>\n</form>"
 
 /***/ }),
 
@@ -659,6 +659,7 @@ module.exports = "<form [formGroup]=\"addMemberForm\" (ngSubmit)=\"addMember();\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_services_custom_validator_service__ = __webpack_require__("../../../../../src/app/shared/services/custom-validator.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -672,26 +673,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AddMemberFormComponent = (function () {
-    function AddMemberFormComponent(membersService, utilitiesService, builder) {
+    function AddMemberFormComponent(membersService, utilitiesService, builder, customValidator) {
         this.membersService = membersService;
         this.utilitiesService = utilitiesService;
         this.builder = builder;
+        this.customValidator = customValidator;
         this.months = [];
         this.addMemberFeedback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
-        this.fName = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required);
+        this.fName = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]);
         this.lName = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('');
-        this.psaId = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required);
-        this.location = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required);
+        this.psaId = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]);
+        this.location = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]);
         this.birthday = {
-            day: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required),
-            month: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required)
+            day: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarDay]),
+            month: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('Month', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarMonth])
         };
-        this.email = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required);
+        this.email = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]);
         this.dateOfJoining = {
-            day: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required),
-            month: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required),
-            year: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required)
+            day: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarDay]),
+            month: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('Month', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarMonth]),
+            year: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarYear])
         };
         this.addMemberForm = this.builder.group({
             fName: this.fName,
@@ -715,9 +718,12 @@ var AddMemberFormComponent = (function () {
     };
     AddMemberFormComponent.prototype.addMember = function () {
         var _this = this;
-        console.log(this.addMemberForm.value);
+        //		console.log(this.addMemberForm.value);
         this.membersService.addMember(this.addMemberForm.value).subscribe(function (data) {
-            _this.addMemberFeedback.emit(data);
+            if (data.status == "success") {
+                _this.addMemberForm.reset();
+            }
+            _this.addMemberFeedback.emit(data.message);
         }, function (err) {
             _this.addMemberFeedback.emit(err);
         });
@@ -734,10 +740,10 @@ AddMemberFormComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/members-directory/add-member-form/add-member-form.component.html"),
         styles: [__webpack_require__("../../../../../src/app/members-directory/add-member-form/add-member-form.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services_members_service__["a" /* MembersService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services_members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services_members_service__["a" /* MembersService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__shared_services_custom_validator_service__["a" /* CustomValidatorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_services_custom_validator_service__["a" /* CustomValidatorService */]) === "function" && _e || Object])
 ], AddMemberFormComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=add-member-form.component.js.map
 
 /***/ }),
@@ -763,7 +769,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<form [formGroup]=\"editMemberForm\" (ngSubmit)=\"updateMemberDetail();\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"fName-{{index}}\">First Name</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName-{{index}}\" [formControl]=\"fName\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"lName-{{index}}\">Last Name</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName-{{index}}\" [formControl]=\"lName\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"psaId-{{index}}\">PSA ID</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId-{{index}}\" [formControl]=\"psaId\">\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label for=\"location-{{index}}\">Location</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location-{{index}}\" [formControl]=\"location\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"birthday\">\n\t\t\t\t<label for=\"birthday-day-{{index}}\">Birthday</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthday-day-{{index}}\" [formControl]=\"birthday.day\" placeholder=\"Day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n<!--\t\t\t\t\t<label for=\"birthday-month-{{index}}\">Month</label>-->\n\t\t\t\t\t\t<select class=\"form-control\" id=\"birthday-month-{{index}}\" [formControl]=\"birthday.month\">\n\t\t\t\t\t\t\t<option disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"dateOfJoining\">\n\t\t\t\t<label for=\"dateOfJoining-day-{{index}}\">Date of Joining</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-day-{{index}}\" [formControl]=\"dateOfJoining.day\" placeholder=\"Day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n<!--\t\t\t\t\t<label for=\"birthday-month-{{index}}\">Month</label>-->\n\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoining-month-{{index}}\" [formControl]=\"dateOfJoining.month\">\n\t\t\t\t\t\t\t<option disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-year-{{index}}\" [formControl]=\"dateOfJoining.year\" placeholder=\"Year\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button class=\"btn btn-primary\" type=\"submit\">Update</button>\n\t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"closeEditing();\">Cancel</button>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</form>"
+module.exports = "\n<form [formGroup]=\"editMemberForm\" (ngSubmit)=\"updateMemberDetail();\">\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!psaId.hasError('isNotUniquePSAID') || psaId.untouched\">\n\t\tMember with given PSA ID already exists.\n\t</div>\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!birthday.day.hasError('isNotCalendarDay') || birthday.day.untouched\">\n\t\tBirthday's day is invalid.\n\t</div>\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!birthday.month.hasError('isNotCalendarMonth') || birthday.month.untouched\">\n\t\tBirthday's month is invalid.\n\t</div>\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.day.hasError('isNotCalendarDay') || dateOfJoining.day.untouched\">\n\t\tDate of Joining's day is invalid.\n\t</div>\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.month.hasError('isNotCalendarMonth') || dateOfJoining.month.untouched\">\n\t\tDate of Joining's month is invalid.\n\t</div>\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.year.hasError('isNotCalendarYear') || dateOfJoining.year.untouched\">\n\t\tDate of Joining's year is invalid.\n\t</div>\n\t<p class=\"text-right\"><span class=\"text-danger\">* </span>Required fields</p>\n\t<div class=\"row\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label class=\"control-label required\" for=\"fName-{{index}}\">First Name</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName-{{index}}\" [formControl]=\"fName\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label class=\"control-label\" for=\"lName-{{index}}\">Last Name</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName-{{index}}\" [formControl]=\"lName\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label class=\"control-label required\" for=\"psaId-{{index}}\">PSA ID</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId-{{index}}\" [formControl]=\"psaId\">\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<label class=\"control-label required\" for=\"location-{{index}}\">Location</label>\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location-{{index}}\" [formControl]=\"location\">\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"birthday\">\n\t\t\t\t<label class=\"control-label required\" for=\"birthday-day-{{index}}\">Birthday</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthday-day-{{index}}\" [formControl]=\"birthday.day\" placeholder=\"Day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n<!--\t\t\t\t\t<label for=\"birthday-month-{{index}}\">Month</label>-->\n\t\t\t\t\t\t<select class=\"form-control\" id=\"birthday-month-{{index}}\" [formControl]=\"birthday.month\">\n\t\t\t\t\t\t\t<option disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\" formGroupName=\"dateOfJoining\">\n\t\t\t\t<label class=\"control-label required\" for=\"dateOfJoining-day-{{index}}\">Date of Joining</label>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-day-{{index}}\" [formControl]=\"dateOfJoining.day\" placeholder=\"Day\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoining-month-{{index}}\" [formControl]=\"dateOfJoining.month\">\n\t\t\t\t\t\t\t<option disabled>Month</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-year-{{index}}\" [formControl]=\"dateOfJoining.year\" placeholder=\"Year\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"!editMemberForm.valid || editMemberForm.untouched\">Update</button>\n\t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"closeEditing();\">Cancel</button>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</form>"
 
 /***/ }),
 
@@ -775,6 +781,7 @@ module.exports = "\n<form [formGroup]=\"editMemberForm\" (ngSubmit)=\"updateMemb
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_services_custom_validator_service__ = __webpack_require__("../../../../../src/app/shared/services/custom-validator.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -787,26 +794,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var EditMemberFormComponent = (function () {
-    function EditMemberFormComponent(utilitiesService, builder) {
+    function EditMemberFormComponent(utilitiesService, builder, customValidator) {
         this.utilitiesService = utilitiesService;
         this.builder = builder;
+        this.customValidator = customValidator;
         this.closeEdit = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.updateMember = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.months = [];
-        this.fName = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]("");
-        this.lName = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]("");
-        this.psaId = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('');
-        this.location = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('');
+        this.fName = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]);
+        this.lName = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('');
+        this.psaId = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]);
+        this.location = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]);
         this.birthday = {
-            day: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](''),
-            month: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('')
+            day: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarDay]),
+            month: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarMonth])
         };
-        this.email = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('');
+        this.email = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]);
         this.dateOfJoining = {
-            day: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](''),
-            month: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](''),
-            year: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('')
+            day: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarDay]),
+            month: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarMonth]),
+            year: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, this.customValidator.isCalendarYear])
         };
         this.editMemberForm = this.builder.group({
             fName: this.fName,
@@ -862,10 +871,10 @@ EditMemberFormComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.html"),
         styles: [__webpack_require__("../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_utilities_service__["a" /* UtilitiesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_utilities_service__["a" /* UtilitiesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services_custom_validator_service__["a" /* CustomValidatorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services_custom_validator_service__["a" /* CustomValidatorService */]) === "function" && _e || Object])
 ], EditMemberFormComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=edit-member-form.component.js.map
 
 /***/ }),
@@ -1099,6 +1108,67 @@ NavigationComponent = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/shared/services/custom-validator.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomValidatorService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CustomValidatorService = (function () {
+    function CustomValidatorService(membersService) {
+        this.membersService = membersService;
+        this.members = this.membersService.members;
+    }
+    CustomValidatorService.prototype.isCalendarDay = function (input) {
+        var value = input.value;
+        var hasValidValue;
+        if (!isNaN(value)) {
+            hasValidValue = value <= 31 && value >= 1;
+        }
+        else {
+            hasValidValue = false;
+        }
+        return hasValidValue ? null : { isNotCalendarDay: true };
+    };
+    CustomValidatorService.prototype.isCalendarMonth = function (input) {
+        var value = input.value;
+        var hasValidValue;
+        if (!isNaN(value)) {
+            hasValidValue = value <= 12 && value >= 1;
+        }
+        else {
+            hasValidValue = false;
+        }
+        return hasValidValue ? null : { isNotCalendarMonth: true };
+    };
+    CustomValidatorService.prototype.isCalendarYear = function (input) {
+        var value = input.value;
+        return !isNaN(value) && value > 0 ? null : { isNotCalendarYear: true };
+    };
+    return CustomValidatorService;
+}());
+CustomValidatorService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__members_service__["a" /* MembersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__members_service__["a" /* MembersService */]) === "function" && _a || Object])
+], CustomValidatorService);
+
+var _a;
+//# sourceMappingURL=custom-validator.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/shared/services/data.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1220,8 +1290,8 @@ var MembersService = (function () {
         var _this = this;
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].create(function (observer) {
             _this.dataService.addMemberData(member).subscribe(function (data) {
-                observer.next(data.message);
-                _this.reloadMembers();
+                observer.next(data);
+                _this.members = data.updatedMembersList;
                 observer.complete();
             }, function (err) {
                 console.log("Error: " + err);
@@ -1369,12 +1439,14 @@ UtilitiesService = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_service__ = __webpack_require__("../../../../../src/app/shared/services/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_utilities_service__ = __webpack_require__("../../../../../src/app/shared/services/utilities.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_members_service__ = __webpack_require__("../../../../../src/app/shared/services/members.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_custom_validator_service__ = __webpack_require__("../../../../../src/app/shared/services/custom-validator.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1391,7 +1463,7 @@ SharedModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
         ],
         declarations: [],
-        providers: [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__services_utilities_service__["a" /* UtilitiesService */], __WEBPACK_IMPORTED_MODULE_4__services_members_service__["a" /* MembersService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_2__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__services_utilities_service__["a" /* UtilitiesService */], __WEBPACK_IMPORTED_MODULE_4__services_members_service__["a" /* MembersService */], __WEBPACK_IMPORTED_MODULE_5__services_custom_validator_service__["a" /* CustomValidatorService */]],
         exports: []
     })
 ], SharedModule);

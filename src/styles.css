@@ -8,3 +8,7 @@ a{
 .container-fluid{
 	margin-top: 20px;
 }
+label.required:after{
+	content: " *";
+	color: #d9534f !important;
+}

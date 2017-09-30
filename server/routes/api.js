@@ -1,6 +1,8 @@
 const express = require("express");
 const fs = require("fs");
 
+const member = require("../member")
+
 const router = express.Router();
 
 router.get("/getMembers", function(req, res){
@@ -9,11 +11,14 @@ router.get("/getMembers", function(req, res){
 });
 
 router.post("/addMember", function(req, res){
-	//res.writeHead(200, {"Content-Type": "text/plain"});
-	res.json({
-		status: 200,
-		message: `Added new member: ${req.body.fName}`
-	});
+	
+	member.add(req.body, function(status, message, updatedMembersList){
+		res.json({
+			status: status,
+			message: message,
+			updatedMembersList: updatedMembersList
+		});
+	})
 });
 
 module.exports = router;

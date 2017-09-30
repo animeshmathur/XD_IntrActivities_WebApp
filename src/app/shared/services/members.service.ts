@@ -60,8 +60,8 @@ export class MembersService {
 		return Observable.create((observer) => {
 			this.dataService.addMemberData(member).subscribe(
 				(data) => {
-					observer.next(data.message);
-					this.reloadMembers();
+					observer.next(data);
+					this.members = data.updatedMembersList;
 					observer.complete();
 				},
 				(err) => {
