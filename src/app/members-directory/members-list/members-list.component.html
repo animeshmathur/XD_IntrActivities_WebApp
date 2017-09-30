@@ -1,3 +1,6 @@
+<div class="alert alert-info" [hidden]="!hasFeedback">
+	{{feedbackMessage}}
+</div>
 <div class="row">
 	<div class="col-md-8">
 		<h1>Members List</h1>
@@ -6,11 +9,10 @@
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>ID</th>
+						<th>PSA ID</th>
 						<th>Location</th>
 						<th>Email</th>
-						<th></th>
-						<th></th>
+						<th colspan="2">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,7 +25,7 @@
 							<button class="btn btn-sm btn-outline-primary" (click)="isEditing[i] = true"><span class="glyphicon glyphicon-edit"></span></button>
 						</td>
 						<td [hidden]="isEditing[i]">
-							<button class="btn btn-sm btn-outline-danger"><span class="glyphicon glyphicon-remove"></span></button>
+							<button class="btn btn-sm btn-outline-danger" (click)="deleteMember(member);"><span class="glyphicon glyphicon-remove"></span></button>
 						</td>
 						<td *ngIf="isEditing[i]" colspan="6" xd-edit-member-form [member]="member" (closeEdit)="closeEditing(i);" (updateMember)="updateMemberData(i, $event);"></td>
 					</tr>
@@ -32,6 +34,6 @@
 		</div>
 	</div>
 	<div class="col-md-4">
-		<xd-add-member-form></xd-add-member-form>
+		<xd-add-member-form (addMemberFeedback)="setFeedback($event);"></xd-add-member-form>
 	</div>
 </div>

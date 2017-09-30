@@ -10,7 +10,17 @@ export class DataService {
     constructor(private http: Http) { }
 	
     getMembersData(){
-        return this.http.get('/json/ux_members.json')
+        return this.http.get('/api/getMembers')
         .map(response => response.json());
     }
+	
+	addMemberData(member){
+		return this.http.post('/api/addMember', member)
+		.map(response => response.json());
+	}
+	
+	deleteMemberData(member){
+		return this.http.delete('/api/deleteMember', member)
+		.map(response => response.json());
+	}
 }

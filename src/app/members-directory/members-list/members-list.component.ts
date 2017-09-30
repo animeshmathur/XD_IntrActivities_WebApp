@@ -11,6 +11,8 @@ export class MembersListComponent implements OnInit {
 
   	members : Member[];
 	isEditing = [];
+	hasFeedback: boolean = false;
+	feedbackMessage: string;
     
     constructor(private membersService: MembersService) {
 		
@@ -30,5 +32,21 @@ export class MembersListComponent implements OnInit {
 	updateMemberData(index: number, newMemberData: Member){
 		this.members[index] = newMemberData;
 	}
-
+	
+	deleteMember(member: Member){
+		this.membersService.deleteMember(member).subscribe(
+			(data) => {
+				this.setFeedback(data);
+			},
+			(err) => {
+				this.setFeedback(err);
+			}
+		);
+	}
+	
+	
+	setFeedback(msg: string){
+		this.hasFeedback = true;
+		this.feedbackMessage = msg;
+	}
 }

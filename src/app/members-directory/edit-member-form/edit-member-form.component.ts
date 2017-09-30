@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { UtilitiesService } from '../../shared/services/utilities.service';
 import { Member } from '../../shared/models/member.model'; 
+import { MembersService } from '../../shared/services/members.service';
+import { CustomValidatorService } from '../../shared/services/custom-validator.service';
 
 @Component({
   selector: '[xd-edit-member-form]',
@@ -18,23 +20,25 @@ export class EditMemberFormComponent implements OnInit {
 	 
 	months = [];
 	 
-	constructor(private utilitiesService: UtilitiesService, private builder: FormBuilder) {
+	constructor(private utilitiesService: UtilitiesService,
+				private builder: FormBuilder,
+			    private customValidator: CustomValidatorService) {
 		this.months = this.utilitiesService.getMonths();
 	}
 	
-	fName: FormControl = new FormControl("");
-	lName: FormControl = new FormControl("");
-	psaId = new FormControl('');
-	location = new FormControl('');
+	fName = new FormControl('', [Validators.required]);
+	lName = new FormControl('');
+	psaId = new FormControl('', [Validators.required]);
+	location = new FormControl('', [Validators.required]);
 	birthday = {
-		day: new FormControl(''),
-		month: new FormControl('')
+		day: new FormControl('', [Validators.required, this.customValidator.isCalendarDay]),
+		month: new FormControl('', [Validators.required, this.customValidator.isCalendarMonth])
 	};
-	email = new FormControl('');
+	email = new FormControl('', [Validators.required]);
 	dateOfJoining = {
-		day: new FormControl(''),
-		month: new FormControl(''),
-		year: new FormControl('')
+		day: new FormControl('', [Validators.required, this.customValidator.isCalendarDay]),
+		month: new FormControl('', [Validators.required, this.customValidator.isCalendarMonth]),
+		year: new FormControl('', [Validators.required, this.customValidator.isCalendarYear])
 	};
 	
 	editMemberForm: FormGroup = this.builder.group({

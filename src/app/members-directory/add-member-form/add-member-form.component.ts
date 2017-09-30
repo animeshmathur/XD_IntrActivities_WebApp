@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UtilitiesService } from '../../shared/services/utilities.service';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { MembersService } from '../../shared/services/members.service';
+import { CustomValidatorService } from '../../shared/services/custom-validator.service';
 
 @Component({
   selector: 'xd-add-member-form',
@@ -11,19 +13,21 @@ export class AddMemberFormComponent implements OnInit {
 
   	months = [];
 	
-	fName = new FormControl('');
+	@Output() addMemberFeedback: EventEmitter<string> = new EventEmitter<string>();
+	
+	fName = new FormControl('', [Validators.required]);
 	lName = new FormControl('');
-	psaId = new FormControl('');
-	location = new FormControl('');
+	psaId = new FormControl('', [Validators.required]);
+	location = new FormControl('', [Validators.required]);
 	birthday = {
-		day: new FormControl(''),
-		month: new FormControl('')
+		day: new FormControl('', [Validators.required, this.customValidator.isCalendarDay]),
+		month: new FormControl('Month', [Validators.required, this.customValidator.isCalendarMonth])
 	};
-	email = new FormControl('');
+	email = new FormControl('', [Validators.required]);
 	dateOfJoining = {
-		day: new FormControl(''),
-		month: new FormControl(''),
-		year: new FormControl('')
+		day: new FormControl('', [Validators.required, this.customValidator.isCalendarDay]),
+		month: new FormControl('Month', [Validators.required, this.customValidator.isCalendarMonth]),
+		year: new FormControl('', [Validators.required, this.customValidator.isCalendarYear])
 	};
 	
 	addMemberForm: FormGroup = this.builder.group({
@@ -43,7 +47,10 @@ export class AddMemberFormComponent implements OnInit {
 		email: this.email
 	});
     
-    constructor(private utilitiesService: UtilitiesService, private builder: FormBuilder) {
+    constructor(private membersService: MembersService,
+				private utilitiesService: UtilitiesService,
+				private builder: FormBuilder,
+				private customValidator: CustomValidatorService) {
 		this.months = this.utilitiesService.getMonths();
 	}
     
@@ -52,7 +59,18 @@ export class AddMemberFormComponent implements OnInit {
     }
 	
 	addMember(){
-		console.log(this.addMemberForm.value);
+//		console.log(this.addMemberForm.value);
+		this.membersService.addMember(this.addMemberForm.value).subscribe(
+			(data) => {
+				if(data.status == "success"){
+					this.addMemberForm.reset();	
+				}				
+				this.addMemberFeedback.emit(data.message);
+			},
+			(err) => {
+				this.addMemberFeedback.emit(err);
+			}
+		);
 	}
 
 }

@@ -1,27 +1,46 @@
 
 <form [formGroup]="editMemberForm" (ngSubmit)="updateMemberDetail();">
+	<div class="alert alert-danger" role="alert" [hidden]="!psaId.hasError('isNotUniquePSAID') || psaId.untouched">
+		Member with given PSA ID already exists.
+	</div>
+	<div class="alert alert-danger" role="alert" [hidden]="!birthday.day.hasError('isNotCalendarDay') || birthday.day.untouched">
+		Birthday's day is invalid.
+	</div>
+	<div class="alert alert-danger" role="alert" [hidden]="!birthday.month.hasError('isNotCalendarMonth') || birthday.month.untouched">
+		Birthday's month is invalid.
+	</div>
+	<div class="alert alert-danger" role="alert" [hidden]="!dateOfJoining.day.hasError('isNotCalendarDay') || dateOfJoining.day.untouched">
+		Date of Joining's day is invalid.
+	</div>
+	<div class="alert alert-danger" role="alert" [hidden]="!dateOfJoining.month.hasError('isNotCalendarMonth') || dateOfJoining.month.untouched">
+		Date of Joining's month is invalid.
+	</div>
+	<div class="alert alert-danger" role="alert" [hidden]="!dateOfJoining.year.hasError('isNotCalendarYear') || dateOfJoining.year.untouched">
+		Date of Joining's year is invalid.
+	</div>
+	<p class="text-right"><span class="text-danger">* </span>Required fields</p>
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<label for="fName-{{index}}">First Name</label>
+				<label class="control-label required" for="fName-{{index}}">First Name</label>
 				<input type="text" class="form-control" id="fName-{{index}}" [formControl]="fName">
 			</div>
 			<div class="form-group">
-				<label for="lName-{{index}}">Last Name</label>
+				<label class="control-label" for="lName-{{index}}">Last Name</label>
 				<input type="text" class="form-control" id="lName-{{index}}" [formControl]="lName">
 			</div>
 			<div class="form-group">
-				<label for="psaId-{{index}}">PSA ID</label>
+				<label class="control-label required" for="psaId-{{index}}">PSA ID</label>
 				<input type="text" class="form-control" id="psaId-{{index}}" [formControl]="psaId">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="form-group">
-				<label for="location-{{index}}">Location</label>
+				<label class="control-label required" for="location-{{index}}">Location</label>
 				<input type="text" class="form-control" id="location-{{index}}" [formControl]="location">
 			</div>
 			<div class="form-group" formGroupName="birthday">
-				<label for="birthday-day-{{index}}">Birthday</label>
+				<label class="control-label required" for="birthday-day-{{index}}">Birthday</label>
 				<div class="row">
 					<div class="col-md-3">
 						<input type="text" class="form-control" id="birthday-day-{{index}}" [formControl]="birthday.day" placeholder="Day">
@@ -36,13 +55,12 @@
 				</div>
 			</div>
 			<div class="form-group" formGroupName="dateOfJoining">
-				<label for="dateOfJoining-day-{{index}}">Date of Joining</label>
+				<label class="control-label required" for="dateOfJoining-day-{{index}}">Date of Joining</label>
 				<div class="row">
 					<div class="col-md-3">
 						<input type="text" class="form-control" id="dateOfJoining-day-{{index}}" [formControl]="dateOfJoining.day" placeholder="Day">
 					</div>
 					<div class="col-md-4">
-<!--					<label for="birthday-month-{{index}}">Month</label>-->
 						<select class="form-control" id="dateOfJoining-month-{{index}}" [formControl]="dateOfJoining.month">
 							<option disabled>Month</option>
 							<option *ngFor="let month of months; let i = index;" [value]="i + 1">{{month}}</option>
@@ -54,7 +72,7 @@
 				</div>
 			</div>
 			<div class="text-right">
-				<button class="btn btn-primary" type="submit">Update</button>
+				<button class="btn btn-primary" type="submit" [disabled]="!editMemberForm.valid || editMemberForm.untouched">Update</button>
 				<button class="btn btn-secondary" type="button" (click)="closeEditing();">Cancel</button>
 			</div>
 		</div>
