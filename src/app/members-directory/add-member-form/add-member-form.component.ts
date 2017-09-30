@@ -13,7 +13,7 @@ export class AddMemberFormComponent implements OnInit {
 
   	months = [];
 	
-	@Output() addMemberFeedback: EventEmitter<string> = new EventEmitter<string>();
+	@Output() addMemberFeedback: EventEmitter<any> = new EventEmitter<any>();
 	
 	fName = new FormControl('', [Validators.required]);
 	lName = new FormControl('');
@@ -65,10 +65,16 @@ export class AddMemberFormComponent implements OnInit {
 				if(data.status == "success"){
 					this.addMemberForm.reset();	
 				}				
-				this.addMemberFeedback.emit(data.message);
+				this.addMemberFeedback.emit({
+					status: data.status,
+					message: data.message
+				});
 			},
 			(err) => {
-				this.addMemberFeedback.emit(err);
+				this.addMemberFeedback.emit({
+					status: "failed",
+					message: err
+				});
 			}
 		);
 	}
