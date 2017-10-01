@@ -28,6 +28,31 @@ var member = {
 		
 	},
 
+	update(updatedMember, callback){
+		var _this = this;
+		this.getAll((allMembers) => {
+			_this.checkExistanceByPSAID(updatedMember.psaId, allMembers, (exist) => {
+				if(exist){
+					var memberIndex = allMembers.indexOf(allMembers.filter(function(member){return member.psaId == updatedMember.psaId})[0]);
+					allMembers[memberIndex] = updatedMember;
+					fs.writeFile(path.join(__dirname, "../json/ux_members.json"), JSON.stringify(allMembers), (err) => {
+						if(err){
+							console.log(err);
+							callback("failed", "An error occured.");
+						}
+						else{
+							callback("success", `Updated details of member - ${updatedMember.fName} ${updatedMember.lName}`);
+						}
+					});
+				}
+				else{
+					callback("failed", "Invalid member.");
+				}
+			});
+		});
+		
+	},
+
 	deleteByPSAID(psaId, callback){
 		var _this = this;
 		this.getAll((allMembers) => {

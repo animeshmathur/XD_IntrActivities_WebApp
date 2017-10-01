@@ -36,12 +36,8 @@ export class MembersListComponent implements OnInit {
 		this.isEditing[i] = false;
 	}
 	
-	updateMemberData(index: number, newMemberData: Member){
-		this.members[index] = newMemberData;
-	}
-	
-	deleteMember(member: Member){
-		this.membersService.deleteMember(member).subscribe(
+	updateMemberData(index: number, member: Member){
+		this.membersService.updateMember(index, member).subscribe(
 			(data) => {
 				this.serveFeedback(data);
 			},
@@ -51,6 +47,18 @@ export class MembersListComponent implements OnInit {
 		);
 	}
 	
+	deleteMember(member: Member){
+		if(confirm(`Do you want to delete member record of ${member.fName}?`)){
+			this.membersService.deleteMember(member).subscribe(
+				(data) => {
+					this.serveFeedback(data);
+				},
+				(err) => {
+					this.serveFeedback(err);
+				}
+			);
+		}
+	}
 	
 	serveFeedback(feedback){
 		if(feedback.status == "success"){

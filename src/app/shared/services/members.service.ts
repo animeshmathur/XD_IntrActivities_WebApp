@@ -42,12 +42,29 @@ export class MembersService {
     }
 
 	addMember(member: Member){
-		console.log(member);
 		return Observable.create((observer) => {
 			this.dataService.addMemberData(member).subscribe(
 				(data) => {
 					if(data.status == "success"){
 						this.members.push(member);
+					}
+					observer.next(data);
+					observer.complete();
+				},
+				(err) => {
+					console.log("Error: " + err);
+					observer.error(new Error(err));
+				}
+			);	
+		});
+	}
+
+	updateMember(index: number, member: Member){
+		return Observable.create((observer) => {
+			this.dataService.updateMemberData(member).subscribe(
+				(data) => {
+					if(data.status == "success"){
+						this.members[index] = member;
 					}
 					observer.next(data);
 					observer.complete();
@@ -77,9 +94,5 @@ export class MembersService {
 				}
 			);	
 		});
-	}
-
-	updateMember(member: Member){
-		
 	}
 }
