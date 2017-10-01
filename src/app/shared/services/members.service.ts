@@ -41,27 +41,15 @@ export class MembersService {
 		});
     }
 
-	reloadMembers() {
-		this.dataService.getMembersData().subscribe(
-			(data) => {
-				this.members = data;
-				this.membersWithUpcomingBirthday = this.utilitiesService.getMembersWithUpcomingBirthday(this.members);
-				this.membersWithUpcomingWorkAnniversary = this.utilitiesService.getMembersWithUpcomingWorkAnniversary(this.members);
-				this.membersWithBirthdayToday = this.utilitiesService.getMembersWithBirthdayToday(this.members);
-				this.membersWithWorkAnniversaryToday = this.utilitiesService.getMembersWithWorkAnniversaryToday(this.members);
-			},
-			(err) => {
-				console.log("Error: " + err);
-			}
-		);
-    }
-
 	addMember(member: Member){
+		console.log(member);
 		return Observable.create((observer) => {
 			this.dataService.addMemberData(member).subscribe(
 				(data) => {
+					if(data.status == "success"){
+						this.members.push(member);
+					}
 					observer.next(data);
-					this.members = data.updatedMembersList;
 					observer.complete();
 				},
 				(err) => {
@@ -76,8 +64,11 @@ export class MembersService {
 		return Observable.create((observer) => {
 			this.dataService.deleteMemberData(member).subscribe(
 				(data) => {
-					observer.next(data.message);
-					this.reloadMembers();
+					if(data.status == "success"){
+						let indexOfMember = this.members.indexOf(this.members.filter(function(m){return member.psaId == m.psaId})[0]);
+						this.members.splice(indexOfMember, 1);
+					}
+					observer.next(data);
 					observer.complete();
 				},
 				(err) => {

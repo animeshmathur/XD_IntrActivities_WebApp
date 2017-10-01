@@ -20,7 +20,7 @@ export class DataService {
 	}
 	
 	deleteMemberData(member){
-		return this.http.delete('/api/deleteMember', member)
+		return this.http.delete('/api/deleteMember/?psaId=' + member.psaId)
 		.map(response => response.json());
 	}
 }
