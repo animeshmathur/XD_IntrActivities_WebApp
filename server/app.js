@@ -20,6 +20,9 @@ app.use("/api", api);
 app.get("/", function(req, res){
 	res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
+app.get("/favicon.ico", function(req, res){
+	res.sendFile(path.join(__dirname, '../dist/favicon.ico'));
+});
 app.get("/:pathToFile", function(req, res){
 	if(req.params.pathToFile.indexOf(".js") > 0){
 		res.sendFile(path.join(__dirname, `../dist/${req.params.pathToFile}`));
