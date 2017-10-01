@@ -11,14 +11,21 @@ router.get("/getMembers", function(req, res){
 });
 
 router.post("/addMember", function(req, res){
-	
-	member.add(req.body, function(status, message, updatedMembersList){
+	member.add(req.body, function(status, message){
 		res.json({
 			status: status,
-			message: message,
-			updatedMembersList: updatedMembersList
+			message: message
 		});
 	})
+});
+
+router.delete("/deleteMember", function(req, res){
+	member.deleteByPSAID(req.query.psaId, function(status, message){
+		res.json({
+			status: status,
+			message: message
+		});
+	});
 });
 
 module.exports = router;

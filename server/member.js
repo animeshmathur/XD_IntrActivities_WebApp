@@ -7,30 +7,54 @@ var member = {
 	add(member, callback){
 		var _this = this;
 		this.getAll((allMembers) => {
-			_this.checkExistanceByPSAID(member, allMembers, (exist) => {
+			_this.checkExistanceByPSAID(member.psaId, allMembers, (exist) => {
 				if(!exist){
 					allMembers.push(member);
 					fs.writeFile(path.join(__dirname, "../json/ux_members.json"), JSON.stringify(allMembers), (err) => {
 						if(err){
 							console.log(err);
-							callback("failed", "An error occured.", allMembers);
+							callback("failed", "An error occured.");
 						}
 						else{
-							callback("success", `Added new member - ${member.fName} ${member.lName}`, allMembers);
+							callback("success", `Added new member - ${member.fName} ${member.lName}`);
 						}
 					});
 				}
 				else{
-					callback("failed", "Member with given PSA ID already exists.", allMembers);
+					callback("failed", "Member with given PSA ID already exists.");
 				}
 			});
 		});
 		
 	},
-	
-	checkExistanceByPSAID(member, allMembers, callback){
+
+	deleteByPSAID(psaId, callback){
+		var _this = this;
+		this.getAll((allMembers) => {
+			_this.checkExistanceByPSAID(psaId, allMembers, (exist) => {
+				if(exist){
+					var memberIndex = allMembers.indexOf(allMembers.filter(function(member){return member.psaId == psaId})[0]);
+					var deletedMember = allMembers.splice(memberIndex, 1);
+					fs.writeFile(path.join(__dirname, "../json/ux_members.json"), JSON.stringify(allMembers), (err) => {
+						if(err){
+							console.log(err);
+							callback("failed", "An error occured.");
+						}
+						else{
+							callback("success", `Deleted member - ${deletedMember[0].fName} ${deletedMember[0].lName}`);
+						}
+					});
+				}
+				else{
+					callback("failed", "Invalid member!");
+				}
+			});
+		});
+	},
+
+	checkExistanceByPSAID(psaId, allMembers, callback){
 		var exists = allMembers.filter((_member) => {
-			return _member.psaId == member.psaId;
+			return _member.psaId == psaId;
 		});
 		callback(exists.length > 0);
 	},
