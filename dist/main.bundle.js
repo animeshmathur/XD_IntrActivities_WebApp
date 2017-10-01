@@ -775,7 +775,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/members-directory/edit-member-form/edit-member-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<form [formGroup]=\"editMemberForm\" (ngSubmit)=\"updateMemberDetail();\">\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!psaId.hasError('isNotUniquePSAID') || psaId.untouched\">\r\n\t\tMember with given PSA ID already exists.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!birthday.day.hasError('isNotCalendarDay') || birthday.day.untouched\">\r\n\t\tBirthday's day is invalid.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!birthday.month.hasError('isNotCalendarMonth') || birthday.month.untouched\">\r\n\t\tBirthday's month is invalid.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.day.hasError('isNotCalendarDay') || dateOfJoining.day.untouched\">\r\n\t\tDate of Joining's day is invalid.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.month.hasError('isNotCalendarMonth') || dateOfJoining.month.untouched\">\r\n\t\tDate of Joining's month is invalid.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.year.hasError('isNotCalendarYear') || dateOfJoining.year.untouched\">\r\n\t\tDate of Joining's year is invalid.\r\n\t</div>\r\n\t<p class=\"text-right\"><span class=\"text-danger\">* </span>Required fields</p>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-6\">\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"fName-{{index}}\">First Name</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName-{{index}}\" [formControl]=\"fName\">\r\n\t\t\t</div>\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label class=\"control-label\" for=\"lName-{{index}}\">Last Name</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName-{{index}}\" [formControl]=\"lName\">\r\n\t\t\t</div>\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"psaId-{{index}}\">PSA ID</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"psaId-{{index}}\" [formControl]=\"psaId\">\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"col-md-6\">\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"location-{{index}}\">Location</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location-{{index}}\" [formControl]=\"location\">\r\n\t\t\t</div>\r\n\t\t\t<div class=\"form-group\" formGroupName=\"birthday\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"birthday-day-{{index}}\">Birthday</label>\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthday-day-{{index}}\" [formControl]=\"birthday.day\" placeholder=\"Day\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-4\">\r\n<!--\t\t\t\t\t<label for=\"birthday-month-{{index}}\">Month</label>-->\r\n\t\t\t\t\t\t<select class=\"form-control\" id=\"birthday-month-{{index}}\" [formControl]=\"birthday.month\">\r\n\t\t\t\t\t\t\t<option disabled>Month</option>\r\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\r\n\t\t\t\t\t\t</select>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"form-group\" formGroupName=\"dateOfJoining\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"dateOfJoining-day-{{index}}\">Date of Joining</label>\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-day-{{index}}\" [formControl]=\"dateOfJoining.day\" placeholder=\"Day\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoining-month-{{index}}\" [formControl]=\"dateOfJoining.month\">\r\n\t\t\t\t\t\t\t<option disabled>Month</option>\r\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\r\n\t\t\t\t\t\t</select>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-year-{{index}}\" [formControl]=\"dateOfJoining.year\" placeholder=\"Year\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"text-right\">\r\n\t\t\t\t<button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"!editMemberForm.valid || editMemberForm.untouched\">Update</button>\r\n\t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"closeEditing();\">Cancel</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</form>"
+module.exports = "\r\n<form [formGroup]=\"editMemberForm\" (ngSubmit)=\"updateMemberDetail();\">\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!psaId.hasError('isNotUniquePSAID') || psaId.untouched\">\r\n\t\tMember with given PSA ID already exists.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!birthday.day.hasError('isNotCalendarDay') || birthday.day.untouched\">\r\n\t\tBirthday's day is invalid.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!birthday.month.hasError('isNotCalendarMonth') || birthday.month.untouched\">\r\n\t\tBirthday's month is invalid.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.day.hasError('isNotCalendarDay') || dateOfJoining.day.untouched\">\r\n\t\tDate of Joining's day is invalid.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.month.hasError('isNotCalendarMonth') || dateOfJoining.month.untouched\">\r\n\t\tDate of Joining's month is invalid.\r\n\t</div>\r\n\t<div class=\"alert alert-danger\" role=\"alert\" [hidden]=\"!dateOfJoining.year.hasError('isNotCalendarYear') || dateOfJoining.year.untouched\">\r\n\t\tDate of Joining's year is invalid.\r\n\t</div>\r\n\t<p class=\"text-right\"><span class=\"text-danger\">* </span>Required fields</p>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-6\">\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"fName-{{index}}\">First Name</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fName-{{index}}\" [formControl]=\"fName\">\r\n\t\t\t</div>\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label class=\"control-label\" for=\"lName-{{index}}\">Last Name</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"lName-{{index}}\" [formControl]=\"lName\">\r\n\t\t\t</div>\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"location-{{index}}\">Location</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"location-{{index}}\" [formControl]=\"location\">\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"col-md-6\">\r\n\t\t\t<div class=\"form-group\" formGroupName=\"birthday\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"birthday-day-{{index}}\">Birthday</label>\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"birthday-day-{{index}}\" [formControl]=\"birthday.day\" placeholder=\"Day\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-4\">\r\n<!--\t\t\t\t\t<label for=\"birthday-month-{{index}}\">Month</label>-->\r\n\t\t\t\t\t\t<select class=\"form-control\" id=\"birthday-month-{{index}}\" [formControl]=\"birthday.month\">\r\n\t\t\t\t\t\t\t<option disabled>Month</option>\r\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\r\n\t\t\t\t\t\t</select>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"form-group\" formGroupName=\"dateOfJoining\">\r\n\t\t\t\t<label class=\"control-label required\" for=\"dateOfJoining-day-{{index}}\">Date of Joining</label>\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-day-{{index}}\" [formControl]=\"dateOfJoining.day\" placeholder=\"Day\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t\t\t<select class=\"form-control\" id=\"dateOfJoining-month-{{index}}\" [formControl]=\"dateOfJoining.month\">\r\n\t\t\t\t\t\t\t<option disabled>Month</option>\r\n\t\t\t\t\t\t\t<option *ngFor=\"let month of months; let i = index;\" [value]=\"i + 1\">{{month}}</option>\r\n\t\t\t\t\t\t</select>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-md-3\">\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"dateOfJoining-year-{{index}}\" [formControl]=\"dateOfJoining.year\" placeholder=\"Year\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"text-right\">\r\n\t\t<button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"!editMemberForm.valid || editMemberForm.untouched\">Update</button>\r\n\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"closeEditing();\">Cancel</button>\r\n\t</div>\r\n</form>"
 
 /***/ }),
 
@@ -1029,16 +1029,23 @@ var MembersListComponent = (function () {
     MembersListComponent.prototype.closeEditing = function (i) {
         this.isEditing[i] = false;
     };
-    MembersListComponent.prototype.updateMemberData = function (index, newMemberData) {
-        this.members[index] = newMemberData;
-    };
-    MembersListComponent.prototype.deleteMember = function (member) {
+    MembersListComponent.prototype.updateMemberData = function (index, member) {
         var _this = this;
-        this.membersService.deleteMember(member).subscribe(function (data) {
+        this.membersService.updateMember(index, member).subscribe(function (data) {
             _this.serveFeedback(data);
         }, function (err) {
             _this.serveFeedback(err);
         });
+    };
+    MembersListComponent.prototype.deleteMember = function (member) {
+        var _this = this;
+        if (confirm("Do you want to delete member record of " + member.fName + "?")) {
+            this.membersService.deleteMember(member).subscribe(function (data) {
+                _this.serveFeedback(data);
+            }, function (err) {
+                _this.serveFeedback(err);
+            });
+        }
     };
     MembersListComponent.prototype.serveFeedback = function (feedback) {
         if (feedback.status == "success") {
@@ -1219,6 +1226,10 @@ var DataService = (function () {
         return this.http.post('/api/addMember', member)
             .map(function (response) { return response.json(); });
     };
+    DataService.prototype.updateMemberData = function (member) {
+        return this.http.post('/api/updateMember', member)
+            .map(function (response) { return response.json(); });
+    };
     DataService.prototype.deleteMemberData = function (member) {
         return this.http.delete('/api/deleteMember/?psaId=' + member.psaId)
             .map(function (response) { return response.json(); });
@@ -1293,11 +1304,25 @@ var MembersService = (function () {
     };
     MembersService.prototype.addMember = function (member) {
         var _this = this;
-        console.log(member);
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].create(function (observer) {
             _this.dataService.addMemberData(member).subscribe(function (data) {
                 if (data.status == "success") {
                     _this.members.push(member);
+                }
+                observer.next(data);
+                observer.complete();
+            }, function (err) {
+                console.log("Error: " + err);
+                observer.error(new Error(err));
+            });
+        });
+    };
+    MembersService.prototype.updateMember = function (index, member) {
+        var _this = this;
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].create(function (observer) {
+            _this.dataService.updateMemberData(member).subscribe(function (data) {
+                if (data.status == "success") {
+                    _this.members[index] = member;
                 }
                 observer.next(data);
                 observer.complete();
@@ -1322,8 +1347,6 @@ var MembersService = (function () {
                 observer.error(new Error(err));
             });
         });
-    };
-    MembersService.prototype.updateMember = function (member) {
     };
     return MembersService;
 }());

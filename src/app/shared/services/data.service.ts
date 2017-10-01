@@ -18,6 +18,11 @@ export class DataService {
 		return this.http.post('/api/addMember', member)
 		.map(response => response.json());
 	}
+
+	updateMemberData(member){
+		return this.http.post('/api/updateMember', member)
+		.map(response => response.json());
+	}
 	
 	deleteMemberData(member){
 		return this.http.delete('/api/deleteMember/?psaId=' + member.psaId)

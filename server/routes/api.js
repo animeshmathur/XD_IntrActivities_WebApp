@@ -19,6 +19,15 @@ router.post("/addMember", function(req, res){
 	})
 });
 
+router.post("/updateMember", function(req, res){
+	member.update(req.body, function(status, message){
+		res.json({
+			status: status,
+			message: message
+		});
+	})
+});
+
 router.delete("/deleteMember", function(req, res){
 	member.deleteByPSAID(req.query.psaId, function(status, message){
 		res.json({

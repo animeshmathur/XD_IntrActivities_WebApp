@@ -30,15 +30,11 @@
 				<input type="text" class="form-control" id="lName-{{index}}" [formControl]="lName">
 			</div>
 			<div class="form-group">
-				<label class="control-label required" for="psaId-{{index}}">PSA ID</label>
-				<input type="text" class="form-control" id="psaId-{{index}}" [formControl]="psaId">
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="form-group">
 				<label class="control-label required" for="location-{{index}}">Location</label>
 				<input type="text" class="form-control" id="location-{{index}}" [formControl]="location">
 			</div>
+		</div>
+		<div class="col-md-6">
 			<div class="form-group" formGroupName="birthday">
 				<label class="control-label required" for="birthday-day-{{index}}">Birthday</label>
 				<div class="row">
@@ -71,10 +67,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="text-right">
-				<button class="btn btn-primary" type="submit" [disabled]="!editMemberForm.valid || editMemberForm.untouched">Update</button>
-				<button class="btn btn-secondary" type="button" (click)="closeEditing();">Cancel</button>
-			</div>
 		</div>
+	</div>
+	<div class="text-right">
+		<button class="btn btn-primary" type="submit" [disabled]="!editMemberForm.valid || editMemberForm.untouched">Update</button>
+		<button class="btn btn-secondary" type="button" (click)="closeEditing();">Cancel</button>
 	</div>
 </form>
