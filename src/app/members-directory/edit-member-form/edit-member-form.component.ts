@@ -67,7 +67,6 @@ export class EditMemberFormComponent implements OnInit {
 	}
 
 	updateMemberDetail(){
-		console.log(this.editMemberForm.value);
 		this.member = this.editMemberForm.value;
 		this.updateMember.emit(this.member);
 		this.closeEditing();

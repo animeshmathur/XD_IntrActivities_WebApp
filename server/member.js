@@ -50,7 +50,6 @@ var member = {
 				}
 			});
 		});
-		
 	},
 
 	deleteByPSAID(psaId, callback){
