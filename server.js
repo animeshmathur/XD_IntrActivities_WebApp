@@ -40,6 +40,9 @@ app.get("/css/bootstrap/:pathToFile", function(req, res){
 app.get("/css/fonts/:pathToFile", function(req, res){
 	res.sendFile(path.join(__dirname, `./dist/css/fonts/${req.params.pathToFile}`));
 });
+app.get("/assets/images/:pathToFile", function(req, res){
+	res.sendFile(path.join(__dirname, `./dist/assets/images/${req.params.pathToFile}`));
+});
 
 const port = process.env.port || 3000;
 app.set("port", port);

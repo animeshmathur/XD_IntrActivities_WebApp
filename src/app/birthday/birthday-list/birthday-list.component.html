@@ -1,7 +1,8 @@
 <h1 *ngIf="!isFilteredList">Birthdays <span [hidden]="filterByMonth == 'All'">in {{utilitiesService.monthName(filterByMonth)}}</span></h1>
 <div class="row">
-    <div class="col-md-8">
-        <div class="table-responsive">
+    <div class="col-md-9">
+		
+        <div class="table-responsive" *ngIf="!isFilteredList">
             <table class="table table-striped table-condensed">
                 <thead>
                     <tr>
@@ -24,8 +25,18 @@
                 </tbody>
             </table>
         </div>
+		
+		<div class="card-tiles-container" *ngIf="isFilteredList">
+			<div class="card user-card" *ngFor="let member of members | filterBirthdayBy: 'month':filterByMonth | sortByDate: sortDescending">
+			  <img class="card-img-top" src="assets/images/user-default.png" alt="Card image cap">
+			  <div class="card-block">
+				<h6 class="card-title">{{member.fName}}  {{member.lName}}</h6>
+				<p class="card-text">{{member.birthday.day}} - {{utilitiesService.monthName(member.birthday.month)}}</p>
+			  </div>
+			</div>
+		</div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div *ngIf="!isFilteredList">
             <label for="filterByMonth">Filter by month</label>
             <select id="filterByMonth" class="form-control" [(ngModel)]="filterByMonth">

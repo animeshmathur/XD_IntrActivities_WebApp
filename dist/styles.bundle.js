@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody{\r\n\tfont-size: 14px;\r\n}\r\na{\r\n\ttext-decoration: none !important;\r\n}\r\n.container-fluid{\r\n\tmargin-top: 20px;\r\n}\r\nlabel.required:after{\r\n\tcontent: \" *\";\r\n\tcolor: #d9534f !important;\r\n}\r\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody{\r\n\tfont-size: 14px;\r\n}\r\na{\r\n\ttext-decoration: none !important;\r\n}\r\n.container-fluid{\r\n\tmargin-top: 20px;\r\n}\r\nlabel.required:after{\r\n\tcontent: \" *\";\r\n\tcolor: #d9534f !important;\r\n}\r\n\r\n.card-tiles-container{\r\n\tdisplay: -webkit-box;\r\n\tdisplay: -ms-flexbox;\r\n\tdisplay: flex;\r\n\t-ms-flex-wrap: wrap;\r\n\t    flex-wrap: wrap;\r\n}\r\n.user-card{\r\n\twidth: 200px !important;\r\n    margin: 20px;\r\n}", ""]);
 
 // exports
 
