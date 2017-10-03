@@ -848,7 +848,6 @@ var EditMemberFormComponent = (function () {
         this.closeEdit.emit();
     };
     EditMemberFormComponent.prototype.updateMemberDetail = function () {
-        console.log(this.editMemberForm.value);
         this.member = this.editMemberForm.value;
         this.updateMember.emit(this.member);
         this.closeEditing();
